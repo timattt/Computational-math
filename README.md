@@ -38,6 +38,7 @@ f'n = [3/2 * f(Xn) + -2 * f(Xn-1) + 1/2*f(Xn-2)] / h;
 f(x) = sin(x)
 ```
 На графике можно видеть несколько порядков точности производной. Видно, что второй порядок лучше, чем первый.
+
 ![](https://github.com/timattt/Project-computational-math/blob/master/Images/DiffExample.png)
 
 ### Эксперимент с порядком точности
