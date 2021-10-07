@@ -1,3 +1,5 @@
+# функции для манипуляции с матрицами и векторами
+#===========================================================================
 def identity(n):
     res = []
     for i in range(n):
@@ -100,6 +102,8 @@ def dot(A, B):
         res += A[i] * B[i]
     return res
 
+#===========================================================================
+
 def gauss_lead(A, B):
     res = identity(len(A))
     n = len(A)
@@ -177,6 +181,9 @@ def gauss_simple(A, B):
     return 1
     
 def jacob(A, b):
+
+    # Константы итераций
+    #========================================
     n = len(A)
     D = identity(n)
     
@@ -186,19 +193,24 @@ def jacob(A, b):
     
     B = matrixsub(identity(n), matrixmul(D, A))
     g = vectormul(D, b)
-    
-    FancyPrint(B, g, None)
+    #========================================
     
     Xk = [0 for row in range(len(A))]
     
+    # Итерирование
+    #========================================
     for i in range(10000):
         Xk1 = vectorsum(vectormul(B, Xk), g)
         if delta(Xk, Xk1) < 0.01:
             break
         Xk = Xk1
+    #========================================
         
+    # Упаковываем результаты    
+    #========================================
     for i in range(len(b)):
         b[i] = Xk[i]
+    #========================================
         
     return 1
     
@@ -206,6 +218,8 @@ def zeidel(A, b):
     n = len(b)
     C = [[0 for row in range(n)] for col in range(n)]
     
+    # Константы итераций
+    #========================================
     for i in range(n):
         for j in range(n):
             if i != j:
@@ -214,9 +228,12 @@ def zeidel(A, b):
     d = [0 for row in range(n)]
     for i in range(n):
         d[i] = b[i] / A[i][i]
-    
+    #========================================
     
     Xk = [0 for row in range(n)]
+    
+    # Итерирование
+    #========================================
     for it in range(10000):
         Xk1 = [0 for row in range(n)]
         for i in range(n):
@@ -228,10 +245,14 @@ def zeidel(A, b):
         if delta(Xk, Xk1) < 0.01:
             break
         Xk = Xk1
-                
+    #========================================
+            
+    # Упаковываем результаты
+    #========================================
     for i in range(len(b)):
         b[i] = Xk[i]
     return 1
+    #========================================
 
 def fastDescend(A, b):
     n = len(b)
