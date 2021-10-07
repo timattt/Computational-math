@@ -80,10 +80,6 @@ ln(sigma(h)) = p*ln(h);
 
 ## Решение СЛАУ
 
-**Эти задачи просты, как вот эта вещь:**
-
-![](https://kot.sh/sites/default/files/styles/large/public/articles-image/shutterstock_23420932.jpg?itok=tr-sHHkA)
-
 ### Метод Гаусса
 
 Классический метод решения СЛАУ. Рассматриваем невырожденные матрица.
