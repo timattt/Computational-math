@@ -91,7 +91,7 @@ def vectormul(A, B):
 def vectormulf(A, b):
     C = [0 for row in range(len(A))]
     
-    for i in range(len(B)):
+    for i in range(len(b)):
         C[i] = A[i] * b
         
     return C
