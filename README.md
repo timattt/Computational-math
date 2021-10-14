@@ -98,7 +98,7 @@ ln(sigma(h)) = p*ln(h);
 
 ![](https://github.com/timattt/Project-computational-math/blob/master/Images/JacobTeor.png)
 
-Метод сходится, если det(B) < 1.
+Метод сходится, если **det(B) < 1**.
 
 ### Метод Зейделя
 
@@ -108,7 +108,7 @@ ln(sigma(h)) = p*ln(h);
 
 ![](https://github.com/timattt/Project-computational-math/blob/master/Images/ZeidelTeor.png)
 
-Метод сходится, если det( (L + D)^-1 * U ) < 1. L - нижняя треугольная часть. U - верхняя треугольная часть. D - аналогично предыдущему методу. 
+Метод сходится, если **det( (L + D)^-1 * U ) < 1**. **L** - нижняя треугольная часть. **U** - верхняя треугольная часть. **D** - аналогично предыдущему методу. 
 
 ### Метод наискорейшего спуска
 
@@ -147,6 +147,34 @@ Tn = (rn * Arn) / (Arn * Arn)
 
 Мы тут люди скромные и всякие эти ваши понтовые названия алгоритмов вроде "дихотомия" не используем!
 
-Алгоритм такой: у нас есть функция f и отрезок [a, b] на этом отрезке у этой функции проживает по постоянной прописке корень. Делим отрезок много раз рекурсивно пополам и находим корень.
+Алгоритм такой: у нас есть функция **f** и отрезок **[a, b]** на этом отрезке у этой функции проживает по постоянной прописке корень. Делим отрезок много раз рекурсивно пополам и находим корень.
 
 Подробности [тут](http://www.machinelearning.ru/wiki/index.php?title=%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B_%D0%B4%D0%B8%D1%85%D0%BE%D1%82%D0%BE%D0%BC%D0%B8%D0%B8)
+
+### Метод Ньютона (метод секущих)
+
+![](https://github.com/timattt/Project-computational-math/blob/master/Images/Newton_tangents.png)
+
+**Определение красности корня:**
+
+Пусть **p** - кратность корня, тогда:
+```
+p = 1 / (1 - Q)
+Q = lim(Qn) where n -> oo
+Qn = (Xn+1 - Xn) / (Xn - Xn-1)
+```
+
+### Метод Ньютона (метод секущей)
+
+![](https://github.com/timattt/Project-computational-math/blob/master/Images/Newton_tangent.png)
+
+### Метод Ньютона (метод хорд)
+
+![](https://github.com/timattt/Project-computational-math/blob/master/Images/Newton_chords.png)
+
+### Метод Ньютона (многомерный случай)
+
+Имеет вектор-функцию **f**. Имеет ее матрицу якоби **F'**.
+Тогда для поиска корней справедлива формула рекурсивная:
+
+![](https://github.com/timattt/Project-computational-math/blob/master/Images/Newton_multi.png)
