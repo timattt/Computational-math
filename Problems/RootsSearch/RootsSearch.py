@@ -238,15 +238,60 @@ def newton_tangent(x0, epsilon, f, f_der):
     
     return xn#[xn, q]
 
+def gauss_simple(A, B):
+    res = identity(len(A))
+    n = len(A)
+    
+    for col in range(n):
+        
+        # Выбор строки с ненулевым элементом
+        #=======================================
+        if A[col][col] == 0:
+            toSwap = None
+            for row in range(col, n):
+                if A[row][col] != 0:
+                    toSwap = row
+                    break
+            if toSwap is None:
+                return 0
+
+            SwapRows(A, B, col, toSwap)
+        #=======================================
+        
+        
+        # Нормируем
+        #=======================================
+        DivideRow(A, B, col, A[col][col])
+        #=======================================
+        
+        
+        # Обрабатываем другие строки
+        #=======================================
+        for row in range(0, n):
+            if row != col:
+                CombineRows(A, B, row, col, -A[row][col])
+        #=======================================
+    
+    return 1
+
 def newton_multidimensional(F, Jacob, X0, epsilon):
     Xn = veccopy(X0)
     
     for i in range(1000000):
+        # JacobXn * Xk = Jacob_Xn*Xk - F_Xn
+        # A*X = B
+        # A = vectorsub
+        # B = Jacob_Xn*Xk - F_Xn
         Jacob_Xn = matrix_from_multidimensional_function(Jacob, Xn)
         F_Xn = vector_from_multidimensional_function(F, Xn)
-        Jacob_Xn_inv = inverse_t(Jacob_Xn)
         
-        Xnp1 = vectorsub(Xn, vectormul(Jacob_Xn_inv, F_Xn))
+        Jacob_Xn_Xn = vectormul(Jacob_Xn, Xn)
+        
+        A = Jacob_Xn
+        B = vectorsub(Jacob_Xn_Xn, F_Xn)
+        
+        gauss_simple(A, B)
+        Xnp1 = B
         
         if delta(Xn, Xnp1) < epsilon:
             break
