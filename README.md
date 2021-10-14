@@ -98,7 +98,10 @@ ln(sigma(h)) = p*ln(h);
 
 ![](https://github.com/timattt/Project-computational-math/blob/master/Images/JacobTeor.png)
 
-Метод сходится, если **det(B) < 1**.
+Метод сходится, если 
+```
+det(B) < 1
+```
 
 ### Метод Зейделя
 
@@ -108,7 +111,11 @@ ln(sigma(h)) = p*ln(h);
 
 ![](https://github.com/timattt/Project-computational-math/blob/master/Images/ZeidelTeor.png)
 
-Метод сходится, если **det( (L + D)^-1 * U ) < 1**. **L** - нижняя треугольная часть. **U** - верхняя треугольная часть. **D** - аналогично предыдущему методу. 
+Метод сходится, если 
+```
+det( (L + D)^-1 * U ) < 1 
+```
+где **L** - нижняя треугольная часть. **U** - верхняя треугольная часть. **D** - аналогично предыдущему методу. 
 
 ### Метод наискорейшего спуска
 
