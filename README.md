@@ -178,3 +178,5 @@ Qn = (Xn+1 - Xn) / (Xn - Xn-1)
 Тогда для поиска корней справедлива формула рекурсивная:
 
 ![](https://github.com/timattt/Project-computational-math/blob/master/Images/Newton_multi.png)
+
+Где **Xk** - векторная последовательность.
