@@ -13,10 +13,10 @@ def identity(n):
     return res
 
 def inputMatrix(n):
-    return [[int(elem) for elem in input().split()] for i in range(n)]
+    return [[float(elem) for elem in input().split()] for i in range(n)]
     
 def inputVector(n):
-    return [int(elem) for elem in input().split()]
+    return [float(elem) for elem in input().split()]
 
 def FancyPrint(A, B, selected):
     for row in range(len(B)):
@@ -290,6 +290,39 @@ def leastResidual(A, b):
         
     return 1
 
+
+def sweep(A, b):
+    n = len(b)
+    y = [0 for row in range(n)]
+    alpha = [0 for row in range(n)]
+    beta = [0 for row in range(n)]
+    
+    if A[0][0] == 0:
+        return 0
+    
+    y[0] = A[0][0]
+    alpha[0] = -A[0][1] / y[0]
+    beta[0] = b[0] / y[0]
+    
+    # forward
+    for i in range(1, n):
+        y[i] = A[i][i] + alpha[i-1] * A[i][i-1]
+        
+        if y[i] == 0:
+            return 0
+        
+        if i < n - 1:
+            alpha[i] = -A[i][i+1] / y[i]
+        beta[i] = (b[i] - A[i][i-1]*beta[i-1])/y[i]
+        
+    # backward and result
+    b[n-1] = beta[n-1]
+    
+    for i in range(n-2, -1, -1):
+        b[i] = alpha[i] * b[i+1] + beta[i]
+    return 1
+
+
 print("SLAE Solver")
 
 print("Input n...")
@@ -301,8 +334,18 @@ A = inputMatrix(n)
 print("Input vector...")
 B = inputVector(n)
 
-print("Cjoose method to solve [1 - Gauss simple, 2 - Gauss with lead element, 3 - Jacob, 4 - Zeidel], 5 - fast descend, 6 - least residual")
+print("Cjoose method to solve [1 - Gauss simple, 2 - Gauss with lead element, 3 - Jacob, 4 - Zeidel], 5 - fast descend, 6 - least residual, 7 - sweep")
 m = int(input())
+
+# m = 7
+# n = 3
+# A = [
+#     [2.0, 1.0, 0.0, 0.0],
+#     [5.0, 4.0, 2.0, 0.0],
+#     [0.0, 1.0, 3.0, 9.0],
+#     [0.0, 0.0, 1.0, 3.0]
+#     ]
+# B = [3.0, 6.0, 2.0, 10]
 
 if m == 1:
     if gauss_simple(A, B):
@@ -336,6 +379,12 @@ if m == 5:
         print("Bad matrix")
 if m == 6:
     if leastResidual(A, B):
+        print("Result:")
+        print(B)
+    else:
+        print("Bad matrix")
+if m == 7:
+    if sweep(A, B):
         print("Result:")
         print(B)
     else:
