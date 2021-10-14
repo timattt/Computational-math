@@ -80,10 +80,6 @@ ln(sigma(h)) = p*ln(h);
 
 ## Решение СЛАУ
 
-**Эти задачи просты, как вот эта вещь:**
-
-![](https://kot.sh/sites/default/files/styles/large/public/articles-image/shutterstock_23420932.jpg?itok=tr-sHHkA)
-
 ### Метод Гаусса
 
 Классический метод решения СЛАУ. Рассматриваем невырожденные матрица.
@@ -102,7 +98,7 @@ ln(sigma(h)) = p*ln(h);
 
 ![](https://github.com/timattt/Project-computational-math/blob/master/Images/JacobTeor.png)
 
-Метод, честно говоря, г_в_о. Ибо для существуют значения матрицы, при которых итерирование уходит на бесконечность.
+Метод сходится, если det(B) < 1.
 
 ### Метод Зейделя
 
@@ -111,6 +107,8 @@ ln(sigma(h)) = p*ln(h);
 Нужные соотношения ниже:
 
 ![](https://github.com/timattt/Project-computational-math/blob/master/Images/ZeidelTeor.png)
+
+Метод сходится, если det( (L + D)^-1 * U ) < 1. L - нижняя треугольная часть. U - верхняя треугольная часть. D - аналогично предыдущему методу. 
 
 ### Метод наискорейшего спуска
 
