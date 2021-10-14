@@ -91,7 +91,7 @@ def vectormul(A, B):
 def vectormulf(A, b):
     C = [0 for row in range(len(A))]
     
-    for i in range(len(b)):
+    for i in range(len(A)):
         C[i] = A[i] * b
         
     return C
@@ -334,7 +334,7 @@ A = inputMatrix(n)
 print("Input vector...")
 B = inputVector(n)
 
-print("Cjoose method to solve [1 - Gauss simple, 2 - Gauss with lead element, 3 - Jacob, 4 - Zeidel], 5 - fast descend, 6 - least residual, 7 - sweep")
+print("Cjoose method to solve [1 - Gauss simple, 2 - Gauss with lead element, 3 - Jacob, 4 - Zeidel, 5 - fast descend, 6 - least residual, 7 - sweep]")
 m = int(input())
 
 # m = 7
