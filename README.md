@@ -146,7 +146,7 @@ Tn = (rn * Arn) / (Arn * Arn)
 
 Метод для решения СЛАУ, матрица которых заполнена не нулями только на трех диагоналях.
 
-Описание [тут](https://pro-prof.com/forums/topic/sweep-method-for-solving-systems-of-linear-algebraic-equations)
+![](https://github.com/timattt/Project-computational-math/blob/master/Images/sweep.png)
 
 ## Определение корней уравнения
 
