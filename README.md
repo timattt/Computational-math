@@ -98,6 +98,8 @@ ln(sigma(h)) = p*ln(h);
 
 ![](https://github.com/timattt/Project-computational-math/blob/master/Images/JacobTeor.png)
 
+D означает матрицу, у которой на главной диагонали стоят соответствующие элементы матрицы A.
+
 Метод сходится, если 
 ```
 det(B) < 1
