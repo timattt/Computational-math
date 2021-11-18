@@ -210,6 +210,9 @@ A*Xk = B
 
 ![image](https://user-images.githubusercontent.com/25401699/142418585-b8c0c74f-1e59-448f-96c0-5981f8ef7635.png)
 
+Рассмотрим пример:
+
+![image](https://user-images.githubusercontent.com/25401699/142419809-e843eed9-ff60-4990-9774-6138e4d86aa5.png)
 
 ### Метод Ньютона
 
@@ -220,6 +223,11 @@ A*Xk = B
 Где разделенная разность задается выражением:
 
 ![image](https://user-images.githubusercontent.com/25401699/142418922-51d5804f-dcf1-4722-a31b-53b3a0813235.png)
+
+Очевидно, что построенный полином будет таким же, как и в прошлом методе.
+Но здесь мы можем легко добавлять еще точки. Добавим еще одну:
+
+![image](https://user-images.githubusercontent.com/25401699/142420218-1a3902f9-f211-4f21-8c45-d3c920241ba9.png)
 
 ### Кубические сплайны
 
@@ -242,3 +250,8 @@ A*Xk = B
 ![image](https://user-images.githubusercontent.com/25401699/142419425-7d7282f8-a340-4463-b265-21cd82752557.png)
 
 то вычисление коэффициента c сведется к задаче о решении СЛАУ в трех-диагональной матрице. Решим ее методом прогонки.
+
+Получим вот что-то такое:
+
+![image](https://user-images.githubusercontent.com/25401699/142420356-fd41a804-0101-4e55-ad2a-09759bededac.png)
+
