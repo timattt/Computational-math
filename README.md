@@ -255,3 +255,13 @@ A*Xk = B
 
 ![image](https://user-images.githubusercontent.com/25401699/142420356-fd41a804-0101-4e55-ad2a-09759bededac.png)
 
+### Аппроксимация Паде
+
+Мы хотим представить заданную функцию в виде рациональной функции.
+
+**Алгоритм:**
+
+![image](https://user-images.githubusercontent.com/25401699/143291967-21aec75a-a554-4f39-9d29-13c673c5fcac.png)
+
+![image](https://user-images.githubusercontent.com/25401699/143292001-94f194d0-b88b-4211-9bfd-258667c2c7fd.png)
+
