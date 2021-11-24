@@ -3,6 +3,19 @@ import numpy as np
 import math
 from scipy.linalg import null_space
 
+def printPol(coefs):
+    items = []
+    for i, x in enumerate((coefs)):
+        if not x:
+            continue
+        items.append('{}x^{}'.format("{0:0.2f}".format(x) if x != 1 or i == 0 else '', i))
+    result = ' + '.join(items)
+    result = result.replace('x^0', '')
+    result = result.replace('^1 ', ' ')
+    result = result.replace('+ -', '- ')
+    
+    return result
+
 def ran(a, b):
     if a < b:
         return range(a, b + 1)
@@ -35,18 +48,14 @@ def Pade(coefs, n, m):
     p = M.dot(q)
     
     return np.squeeze(np.asarray(p)), q
-    
-    
+
 def coefs_test(k):
     if k < 0:
         return 0
     else:
         return 1.0/math.factorial(k)
     
-P, Q = Pade(coefs_test, 2, 2)
-
-print(P)
-print(Q)
+P, Q = Pade(coefs_test, 3, 3)
 
 fig, ax = plt.subplots()
 
@@ -70,10 +79,17 @@ for x in np.arange(-2, 5, 0.1):
         po *= x
     ys2.append(chis/znam)
 
-#print(xs)
-print(ys2)
-plt.plot(xs, ys1, color="green", label="original")
-plt.plot(xs, ys2, color="red", label="Pade")
+chis = printPol(P)
+znam = printPol(Q)
+brace = ""
+print(chis)
+for i in range(max(len(chis), len(znam))):
+    brace += "-"
+print(brace)
+print(znam)
+
+plt.plot(xs, ys1, color="green", label="original\n")
+plt.plot(xs, ys2, color="red", label="Pade:\n\n" + chis + "\n" + brace + brace + "\n" + znam)
 ax.set_xlabel("x")
 ax.set_ylabel("y")
     
