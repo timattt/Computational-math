@@ -265,3 +265,7 @@ A*Xk = B
 
 ![image](https://user-images.githubusercontent.com/25401699/143292001-94f194d0-b88b-4211-9bfd-258667c2c7fd.png)
 
+## Интегрирование
+
+### Интегрирование по монтекарло
+
