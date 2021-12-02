@@ -329,3 +329,8 @@ S = S0 * K / N
 
 ![image](https://user-images.githubusercontent.com/25401699/144396801-0e8629a3-4259-4da8-8307-e66e53b0cb1e.png)
 
+### Правило Рунге
+
+Рунге придумал формулу, как оценивать погрешность интегрирования.
+
+![image](https://user-images.githubusercontent.com/25401699/144397248-ec531889-1068-45b2-8a50-bf6de123500c.png)
