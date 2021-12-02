@@ -152,7 +152,10 @@ def integrateSimpson(f, a, b, n, draw=True):
         ys = np.array([fxi*(x-xiph)*(x-xip1)/((xi-xiph)*(xi-xip1)) + fxiph * (x-xi)*(x-xip1)/((xiph-xi)*(xiph-xip1)) + fxip1*(x-xi)*(x-xiph)/((xip1-xi)*(xip1-xiph)) for x in xs])
         
         if draw:
-            ax.plot(xs, ys, color = "green")
+            #ax.plot(xs, ys, color = "green", hatch='/')
+            xs = np.append(xs, [xip1, xi])
+            ys = np.append(ys, [0, 0])
+            ax.add_patch(patches.Polygon(xy=list(zip(xs, ys)), fill=False, color = "green", hatch='/'))
             ax.stem([xi, xip1], [fxi, fxip1])
             ax.scatter([xiph], [fxiph], color="blue")
     
