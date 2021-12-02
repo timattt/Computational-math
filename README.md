@@ -309,7 +309,7 @@ I = sum 1/6 * (f(xi) + 4*f(xi+0.5) + f(xi+1)) * (xi+1 - xi)
      i
 ```
 
-![image](https://user-images.githubusercontent.com/25401699/144396186-77e5b2b9-3d64-4f35-b312-abe01f4d20e6.png)
+![image](https://user-images.githubusercontent.com/25401699/144398601-fc3b1255-b6e8-489b-a306-db6431f15ed2.png)
 
 ### Интегрирование по монтекарло
 
