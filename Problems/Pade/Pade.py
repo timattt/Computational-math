@@ -42,7 +42,11 @@ def Pade(coefs, n, m):
         mu2 += 1
 
     g = null_space(T[mu1 + 1])
-    q = np.array(g[0])
+    # lin comb
+    q = g[0]
+    for h in g:
+        q = q + h
+    #
     s = len(q)
     M = np.matrix([[coefs(i-j) for j in range(s)] for i in range(n+2)])
     p = M.dot(q)
@@ -55,7 +59,7 @@ def coefs_test(k):
     else:
         return 1.0/math.factorial(k)
     
-P, Q = Pade(coefs_test, 3, 3)
+P, Q = Pade(coefs_test, 5, 5)
 
 fig, ax = plt.subplots()
 
