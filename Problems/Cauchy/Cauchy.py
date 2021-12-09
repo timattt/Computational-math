@@ -22,7 +22,7 @@ def EulerImplicit(func, x0, y0, n, b):
     y[0] = y0
     
     for i in range(1, len(x)):
-        y[i] = scipy.optimize.fsolve(lambda yi: yi - y[i-1] - (x[i] - x[i-1])*func(x[i-1], yi), y[i-1]) 
+        y[i] = scipy.optimize.fsolve(lambda yi: yi - y[i-1] - (x[i] - x[i-1])*func(x[i], yi), y[i-1]) 
         
     return x, y
 
