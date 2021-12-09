@@ -10,4 +10,5 @@
 4. [**Интерполяции**](https://github.com/timattt/Project-computational-math/blob/master/About/Interpolations.md)
 5. [**Интегрирование**](https://github.com/timattt/Project-computational-math/blob/master/About/Integration.md)
 6. [**Решение задачи Коши для ОДУ**](https://github.com/timattt/Project-computational-math/blob/master/About/Cauchy.md)
+7. [**Система Лоренца**](https://github.com/timattt/Project-computational-math/blob/master/About/LorenzSystem.md)
 
