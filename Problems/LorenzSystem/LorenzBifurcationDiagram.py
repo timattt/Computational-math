@@ -10,7 +10,7 @@ def lorenz_system(x, y, z, r, b=10, s=6):
 
 
 dr = 0.1
-r = np.arange(40, 200, dr)
+r = np.arange(0, 200, dr)
 dt = 0.001
 t = np.arange(0, 10, dt)
 
