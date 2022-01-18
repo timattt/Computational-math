@@ -37,21 +37,20 @@ dt
 
 Два тела с одинаковыми массами
 
-![image](https://user-images.githubusercontent.com/25401699/149926331-5e2b0822-2fae-429e-b715-b5caf17f1af9.png)
-
+<img src="https://user-images.githubusercontent.com/25401699/149926331-5e2b0822-2fae-429e-b715-b5caf17f1af9.png" alt="drawing" width="900"/>
 
 ### Пример 2
 
 Одно из тел в десять раз тяжелее другого
 
-![image](https://user-images.githubusercontent.com/25401699/149926459-f9a79277-0b0d-4f73-98a1-c94cad0508a9.png)
+<img src="https://user-images.githubusercontent.com/25401699/149926459-f9a79277-0b0d-4f73-98a1-c94cad0508a9.png" alt="drawing" width="900"/>
 
 В данном случае скорость легкого тела соотвествовала первой космической, относительно второго тела. Поэтому оно двигается по орбите.
 В следующем примере будет иначе.
 
 ### Пример 3
 
-![image](https://user-images.githubusercontent.com/25401699/149926521-00b40554-d914-4350-ac3f-2cabf48fa7ce.png)
+<img src="https://user-images.githubusercontent.com/25401699/149926521-00b40554-d914-4350-ac3f-2cabf48fa7ce.png" alt="drawing" width="900"/>
 
 Здесь наблюдается параболическое движение. Т.к. начальная скорость первого тела больше второй космической.
 
@@ -67,13 +66,14 @@ dt
 
 Пример гравитационного замедления.
 
-![image](https://user-images.githubusercontent.com/25401699/149926576-b380d99a-ef2b-45f2-936a-67542412b406.png)
+<img src="https://user-images.githubusercontent.com/25401699/149926576-b380d99a-ef2b-45f2-936a-67542412b406.png" alt="drawing" width="900"/>
+
 
 ### Пример 5
 
 Пример гравитационного ускорения.
 
-![image](https://user-images.githubusercontent.com/25401699/149926608-2f23fe7b-aa54-42eb-96ae-e08ad9669fca.png)
+<img src="https://user-images.githubusercontent.com/25401699/149926608-2f23fe7b-aa54-42eb-96ae-e08ad9669fca.png" alt="drawing" width="900"/>
 
 ## Эффект Оберта
 
@@ -88,7 +88,7 @@ A = F * dr = F * dr/dt * dt = F * V * dt
 
 ### Пример 6
 
-![image](https://user-images.githubusercontent.com/25401699/149926646-62b84599-8e9e-4cd1-863d-81fa907c2569.png)
+<img src="https://user-images.githubusercontent.com/25401699/149926646-62b84599-8e9e-4cd1-863d-81fa907c2569.png" alt="drawing" width="900"/>
 
 Видно, что наиболее выгодно включать двигатель в перицентре параболлической орбиты.
 
@@ -100,20 +100,20 @@ A = F * dr = F * dr/dt * dt = F * V * dt
 
 Два тела изначально двигались по эллиптической орбите, но прилет третьего все сломал, в результате все три двигаются в бесконечность отдельно.
 
-![image](https://user-images.githubusercontent.com/25401699/149926700-73beb1a3-ed9c-4917-8677-67a8a7adb33f.png)
+<img src="https://user-images.githubusercontent.com/25401699/149926700-73beb1a3-ed9c-4917-8677-67a8a7adb33f.png" alt="drawing" width="900"/>
 
 ### Пример 8
 
 Два тела изначально двигались по эллиптической орбите, но прилет третьего заставил одно тело улететь на бесконечность, а два других образовали новую эллиптическую орбиту.   
 Этакий "любовный" треугольник.
 
-![image](https://user-images.githubusercontent.com/25401699/149926737-286bc8a4-78a2-46c0-94ac-d8476848a707.png)
+<img src="https://user-images.githubusercontent.com/25401699/149926737-286bc8a4-78a2-46c0-94ac-d8476848a707.png" alt="drawing" width="900"/>
 
 ### Пример 9
 
 Здесь в центре располагается массивное тело. Вокруг него по эллиптическим орбитам летают два других легких тела.
 
-![image](https://user-images.githubusercontent.com/25401699/149926830-34495557-8d40-4861-903c-bc0ccb257414.png)
+<img src="https://user-images.githubusercontent.com/25401699/149926830-34495557-8d40-4861-903c-bc0ccb257414.png" alt="drawing" width="900"/>
 
 ### Пример 10
 
@@ -125,7 +125,7 @@ A = F * dr = F * dr/dt * dt = F * V * dt
 
 Этот моделирует поведение **двойной звезды**.
 
-![image](https://user-images.githubusercontent.com/25401699/149926933-da527d72-c8db-4c21-a672-ce3f4c8ac1a4.png)
+<img src="https://user-images.githubusercontent.com/25401699/149926933-da527d72-c8db-4c21-a672-ce3f4c8ac1a4.png" alt="drawing" width="900"/>
 
 ## Приближенная модель солнечной системы
 
@@ -136,16 +136,16 @@ A = F * dr = F * dr/dt * dt = F * V * dt
 
 Это абсолютно симметричное движение в псевдо-солнечной системе.
 
-![image](https://user-images.githubusercontent.com/25401699/149927045-621509eb-cfdc-497f-bb31-72bb9e690111.png)
+<img src="https://user-images.githubusercontent.com/25401699/149927045-621509eb-cfdc-497f-bb31-72bb9e690111.png" alt="drawing" width="900"/>
 
 ### Пример 13
 
 Рассмотрим хаос в псевдо-солнечной системе.
 
-![image](https://user-images.githubusercontent.com/25401699/149927148-d44d6995-bd96-4e23-a6fa-1541d24d8cdb.png)
+<img src="https://user-images.githubusercontent.com/25401699/149927148-d44d6995-bd96-4e23-a6fa-1541d24d8cdb.png" alt="drawing" width="900"/>
 
 ### Пример 14
 
 Еще один пример хаоса. В итоге псевдо-солнечная система полностью рассыпалась.
 
-![image](https://user-images.githubusercontent.com/25401699/149927201-25d132be-3341-490a-aa64-a3781aec9030.png)
+<img src="https://user-images.githubusercontent.com/25401699/149927201-25d132be-3341-490a-aa64-a3781aec9030.png" alt="drawing" width="900"/>
