@@ -49,13 +49,15 @@ def F(rs, masses):
         #
         # crazy values control
         #
-        R = 300
-        r2 = x**2 + y**2
-        if r2 > R**2:
-            rs[i + 0] = min(max(-R, rs[i + 0]), R)
-            rs[i + 1] = min(max(-R, rs[i + 1]), R)
-            rs[i + 2] = 0
-            rs[i + 3] = 0
+        crazyControl = True
+        if crazyControl:
+            R = 300
+            r2 = x**2 + y**2
+            if r2 > R**2:
+                rs[i + 0] = min(max(-R, rs[i + 0]), R)
+                rs[i + 1] = min(max(-R, rs[i + 1]), R)
+                rs[i + 2] = 0
+                rs[i + 3] = 0
         #
         #
         #
@@ -74,6 +76,8 @@ def integrate(rs0, masses, t0, t1, n):
     
     y[0] = np.array(rs0)
     
+    ok = False
+    
     for i in range(1, len(t)):
         k1 = F(y[i-1], masses)
         k2 = F(y[i-1] + 0.5*h*k1, masses)
@@ -81,12 +85,21 @@ def integrate(rs0, masses, t0, t1, n):
         k4 = F(y[i-1] + h * k3, masses)
 
         y[i] = y[i-1] + (h/6) * (k1 + 2*k2 + 2*k3 + k4)
-        
-
+        """
+        if t[i] > 68 and not ok:
+            vx = y[i][2]
+            vy = y[i][3]
+            v = math.sqrt(vx**2 + vy**2)
+            dv = 0.3
+            y[i][2] += dv * vx / v 
+            y[i][3] += dv * vy / v
+            ok = True
+        """
     return y
 
 
 # default
+"""
 drawEnergy = True
 masses = [10, 1]
 inits = [0, 0, 0, 0.1,      10, 0, 0, 1]
@@ -97,10 +110,25 @@ n = 1000
 frameSpeed = 1
 waitTime = 0
 alp = 1
+"""
 
+# 2 bodies
+"""
+drawEnergy = True
+masses = [1, 50]
+inits = [150, 0, -2, 0,      0, 0, 0.1, -0.5]
+t0 = 0
+t1 = 150
+n = 1000
+
+frameSpeed = 0.5
+waitTime = 0.5
+alp = 1
+"""
 
 # solar system order
 """
+drawEnergy = False
 masses = []#[100, 1, 1]
 inits = []#[0, 0, 0, 0.1,      10, 0, 0, 1,       -10, 0, 0, -1]
 
@@ -131,13 +159,14 @@ inits.append(0)
 t0 = 0
 t1 = 70
 n = 1000
+alp = 1
 
 frameSpeed = 0.3
 waitTime = 0#0.1
 """
 
 # solar system chaos
-"""
+
 masses = []#[100, 1, 1]
 inits = []#[0, 0, 0, 0.1,      10, 0, 0, 1,       -10, 0, 0, -1]
 
@@ -146,10 +175,10 @@ N = 10
 for i in range(N):
     masses.append(1)
     tetta = 2*math.pi * i / N
-    r = i * 10 + 70
+    r = i * 10 + 40
     x = r * math.cos(tetta)
     y = r * math.sin(tetta)
-    v = math.sqrt(100 / r)
+    v = math.sqrt(20 / r)
     vx = -v * math.sin(tetta)
     vy = v * math.cos(tetta)
     
@@ -158,18 +187,32 @@ for i in range(N):
     inits.append(vx)
     inits.append(vy)
 
-masses.append(100)
+masses.append(20)
 inits.append(0)
 inits.append(0)
 inits.append(0)
 inits.append(0)
 
 t0 = 0
-t1 = 5000
+t1 = 1200
 n = 1000
 
 frameSpeed = 3
-waitTime = 0
+waitTime = 0.1
+alp = 0.3
+drawEnergy = False
+
+# 3 bodies
+"""
+drawEnergy = False
+masses = [20, 20, 1]
+inits = [0, 0, 0, 1.3,     10, 0, 0, -1.3,     100, 0, 0, 0.6]
+t0 = 0
+t1 = 2800
+n = 10000
+
+frameSpeed = 3.8
+waitTime = 0.2
 alp = 0.3
 """
 
@@ -218,11 +261,10 @@ def animate(i):
 
 #ani = animation.FuncAnimation(fig, animate, interval=1, frames = np.arange(0, (1+waitTime)*len(res), (1+waitTime)*len(res) * frameSpeed / (t1-t0)))
 
-ax.legend()
+#ax.legend()
 ax.set_xlabel("x")
 ax.set_ylabel("y")
 ax.grid()
-ax.legend()
 
 # draw energy
 if drawEnergy:
