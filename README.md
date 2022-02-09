@@ -12,4 +12,4 @@
 6. [**Решение задачи Коши для ОДУ**](https://github.com/timattt/Project-computational-math/blob/master/About/Cauchy.md)
 7. [**Система Лоренца**](https://github.com/timattt/Project-computational-math/blob/master/About/LorenzSystem.md)
 8. [**Астрофизика и решение задачи N-тел**](https://github.com/timattt/Project-computational-math/blob/master/About/NBodies.md)
-
+9. [**Краевая задача**](https://github.com/timattt/Project-computational-math/blob/master/About/BoundaryValueProblem.md)
