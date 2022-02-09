@@ -211,7 +211,7 @@ def fixedPointsMethodLinear(a, b, YaTrue, YbTrue, h, p, q, f):
     
     return [xs], [[np.array([ys[i], ys_der[i]]) for i in range(len(xs))]], ys_der[0]
 
-def createGraph(method, a, b, YaTrue, YbTrue, h, Y, Y_, trueSolution = None):
+def createGraph(method, a, b, YaTrue, YbTrue, h, Y, Y_, Name, trueSolution = None):
     XS, YS, Ya_ = method(a, b, YaTrue, YbTrue, h, Y, Y_)
     
     N = 18
@@ -225,7 +225,7 @@ def createGraph(method, a, b, YaTrue, YbTrue, h, Y, Y_, trueSolution = None):
     
     for i in range(len(XS)):
         if math.fabs(YS[i][0][1] - Ya_) < h:
-            ax.plot(XS[i], [Y[0] for Y in YS[i]], '*', color = next(col), label = "solution")
+            ax.plot(XS[i], [Y[0] for Y in YS[i]], '*', color = "red", label = "solution")
             break
         else:
             if i < N-1 and i>K:
@@ -236,10 +236,11 @@ def createGraph(method, a, b, YaTrue, YbTrue, h, Y, Y_, trueSolution = None):
         
     ax.scatter([a, b], [YaTrue, YbTrue], label = "true", color = "green")
 
+    ax.set_title(Name)
     ax.legend()
     plt.show()
 
-def createGraphLinear(method, a, b, YaTrue, YbTrue, h, p, q, f, trueSolution = None, deriv = False):
+def createGraphLinear(method, a, b, YaTrue, YbTrue, h, p, q, f, Name, trueSolution = None, deriv = False):
     XS, YS, Ya_ = method(a, b, YaTrue, YbTrue, h, p, q, f)
     col = iter(cm.rainbow(np.linspace(0, 1, len(XS))))
     
@@ -249,13 +250,13 @@ def createGraphLinear(method, a, b, YaTrue, YbTrue, h, p, q, f, trueSolution = N
     
     for i in range(len(XS)):
         if YS[i][0][1] == Ya_:
-            ax.plot(XS[i], [Y[0] for Y in YS[i]], color = next(col), label = "solution")
+            ax.plot(XS[i], [Y[0] for Y in YS[i]], '.', color = "red", label = "solution")
             break
         else:
             ax.plot(XS[i], [Y[0] for Y in YS[i]], color = next(col), label = "iteration " + str((i + 1)))
     
     if trueSolution != None:
-        ax.plot(XS[0], [trueSolution(X) for X in XS[0]], '--', color = "orange", label = "true solution") 
+        ax.plot(XS[0], [trueSolution(X) for X in XS[0]], '--', color = "black", label = "true solution") 
         
     if deriv:
         ax.arrow(XS[0][0], YS[0][0][0], 0.2, (0.2) * YaTrue, width = 0.03, head_length = 0.04, alpha = 0.4, color = "red")
@@ -263,6 +264,7 @@ def createGraphLinear(method, a, b, YaTrue, YbTrue, h, p, q, f, trueSolution = N
     else:
         ax.scatter([a, b], [YaTrue, YbTrue], label = "true", color = "green")
 
+    ax.set_title(Name)
     ax.legend()
     plt.show()
     
@@ -352,24 +354,26 @@ def infls(a, b, YaTrue, YbTrue, p, q, f, Y_, Y__, trueSolution, trueSolutionDer)
     
     xs, ys = parse1(inflShootingGeneral)
     coef = (ys[-1] - ys[0]) / (xs[-1] - xs[0])
-    print("shooting general order: " + str(coef))
-    ax.plot(xs, ys, label = "shooting general")
+    print("shooting general order: " + str(round(coef)))
+    ax.plot(xs, ys, label = "shooting general" + ". order: " + str(round(coef)))
     
     xs, ys = parse1(inflshootingMethodLinear)
     coef = (ys[-1] - ys[0]) / (xs[-1] - xs[0])
-    print("shooting linear order: " + str(coef))
-    ax.plot(xs, ys, '--', label = "shooting linear")
+    print("shooting linear order: " + str(round(coef)))
+    ax.plot(xs, ys, '--', label = "shooting linear" + ". order: " + str(round(coef)))
     
     xs, ys = parse(inflgridMethodLinear)
     coef = (ys[-1] - ys[0]) / (xs[-1] - xs[0])
-    print("grid order: " + str(coef))
-    ax.plot(xs, ys, label = "grid")
+    print("grid order: " + str(round(coef)))
+    ax.plot(xs, ys, label = "grid" + ". order: " + str(round(coef)))
     
     xs, ys = parse(inflFixed)
     coef = (ys[-1] - ys[0]) / (xs[-1] - xs[0])
-    print("fixed point order: " + str(coef))
-    ax.plot(xs, ys, label = "fixed points")
+    print("fixed point order: " + str(round(coef)))
+    ax.plot(xs, ys, label = "fixed points" + ". order: " + str(round(coef)))
     
+    ax.set_xlabel("ln(h)")
+    ax.set_ylabel("ln(Delta)")
     ax.legend()
     plt.show()
 
@@ -411,10 +415,10 @@ YbTrue = 1
 
 
 
-createGraph(shootingMethodGeneral, a, b, YaTrue, YbTrue, h, Y_, Y__, trueSol)
-createGraphLinear(shootingMethodLinear, a, b, YaTrue, YbTrue, h, p, q, f, trueSol)
-createGraphLinear(gridMethodLinear, a, b, YaTrue, YbTrue, h, p, q, f, trueSol)
-createGraphLinear(fixedPointsMethodLinear, a, b, YaTrue, YbTrue, h, p, q, f, None, True)
+createGraph(shootingMethodGeneral, a, b, YaTrue, YbTrue, h, Y_, Y__, "Shooting general", trueSol)
+createGraphLinear(shootingMethodLinear, a, b, YaTrue, YbTrue, h, p, q, f, "Shooting linear method", trueSol)
+createGraphLinear(gridMethodLinear, a, b, YaTrue, YbTrue, h, p, q, f, "Grid method", trueSol)
+createGraphLinear(fixedPointsMethodLinear, a, b, YaTrue, YbTrue, h, p, q, f, "Fictitious point method", None, True)
 
 
 
