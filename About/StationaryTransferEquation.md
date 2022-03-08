@@ -107,4 +107,7 @@ VMi = 0.5 * (Vi - |Vi|)
 Yi+1 [-k/h^2 + VMi+0.5/h] + Yi * [2k/h^2 + VPi+0.5 / h - VMi-0.5 / h] + Yi-1 * [-k/h^2 - VPi-0.5 / h] = fi
 ```
 
-Оцениваем также числа Пекле.
+Получаем что-то такое:
+
+![image](https://user-images.githubusercontent.com/25401699/157215111-5cab3192-327f-4ee3-abe7-92706c6375f0.png)
+
