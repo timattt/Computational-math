@@ -43,7 +43,7 @@ PEi = --------
 
 Имеем что-то такое:
 
-![image](https://user-images.githubusercontent.com/25401699/157207297-f7953932-760c-4036-b105-d91c7edefc49.png)
+![image](https://user-images.githubusercontent.com/25401699/157630019-ae5aa1ce-7b3b-4b2b-a8a8-718588497a05.png)
 
 ## Монотонизированная схема
 
@@ -70,7 +70,8 @@ K = K * (1 + r)
 
 Заменим K на новое. И получим:
 
-![image](https://user-images.githubusercontent.com/25401699/157207889-7331adf6-859c-457a-8ea1-ac1959f13663.png)
+![image](https://user-images.githubusercontent.com/25401699/157630094-29bfde74-153e-495b-96f4-5c2d50450e89.png)
+
 
 Теперь критерий монотонности выполняется всегда. И график выглядит получше.
 
@@ -114,5 +115,14 @@ Yi+1 [-k/h^2 + VMi+0.5/h] + Yi * [2k/h^2 + VPi+0.5 / h - VMi-0.5 / h] + Yi-1 * [
 
 Получаем что-то такое:
 
-![image](https://user-images.githubusercontent.com/25401699/157215111-5cab3192-327f-4ee3-abe7-92706c6375f0.png)
+![image](https://user-images.githubusercontent.com/25401699/157630132-6b97fa4e-5a77-417a-9224-26379fa2900f.png)
 
+## Оцениваем погрешности
+
+Как обычно, получим зависимость погршности от шага. Прологарифмируем и возьмем коэффицент прямой.
+
+![image](https://user-images.githubusercontent.com/25401699/157630263-5eef2f8e-2d4d-4ff3-aafa-1d013dd33145.png)
+
+| Конечная объемная аппроксимация | Монотонизированная схема | Безусловно монотонная схема |
+|---------------------------------|--------------------------|-----------------------------|
+| 2                               | 2                        | 1                           |
