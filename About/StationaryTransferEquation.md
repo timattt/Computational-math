@@ -47,7 +47,8 @@ PEi = --------
 
 Имеем что-то такое:
 
-![image](https://user-images.githubusercontent.com/25401699/157630019-ae5aa1ce-7b3b-4b2b-a8a8-718588497a05.png)
+![image](https://user-images.githubusercontent.com/25401699/158333408-542a2a4a-32e5-46e6-8bc0-551b7d3db74c.png)
+
 
 ## Монотонизированная схема
 
@@ -74,8 +75,7 @@ K = K * (1 + r)
 
 Заменим K на новое. И получим:
 
-![image](https://user-images.githubusercontent.com/25401699/157630094-29bfde74-153e-495b-96f4-5c2d50450e89.png)
-
+![image](https://user-images.githubusercontent.com/25401699/158333445-7bf6eab7-6edd-46ce-a2d5-492b312a86f5.png)
 
 Теперь критерий монотонности выполняется всегда. И график выглядит получше.
 
@@ -119,7 +119,7 @@ Yi+1 [-k/h^2 + VMi+0.5/h] + Yi * [2k/h^2 + VPi+0.5 / h - VMi-0.5 / h] + Yi-1 * [
 
 Получаем что-то такое:
 
-![image](https://user-images.githubusercontent.com/25401699/157630132-6b97fa4e-5a77-417a-9224-26379fa2900f.png)
+![image](https://user-images.githubusercontent.com/25401699/158333506-5ea54ae7-b8c3-4082-925a-44b6fe1aaa3e.png)
 
 ## Оцениваем погрешности
 
