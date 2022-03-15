@@ -8,9 +8,18 @@
 ```
 y'' + V(x)y' = f(x)
 
-V(x) = exp(10x)
-f(x) = exp(-x)
+V(x) = e^10x - 10
+f(x) = (-12*x^2 + 0.6 * x + 6.2)
+
+y(0) = 0
+y(1) = 0
+
+y = -x^4 + 0.1 * x^3 + 3.1 * x^2 - 2.2 * x
 ```
+
+График всех коэффициентов:
+
+![image](https://user-images.githubusercontent.com/25401699/158331858-dff9e40b-1552-4d19-acfe-d54fb6b56e1e.png)
 
 ## Конечная объемная апроксимация со вторым порядком
 
@@ -38,7 +47,8 @@ PEi = --------
 
 Имеем что-то такое:
 
-![image](https://user-images.githubusercontent.com/25401699/157207297-f7953932-760c-4036-b105-d91c7edefc49.png)
+![image](https://user-images.githubusercontent.com/25401699/158333408-542a2a4a-32e5-46e6-8bc0-551b7d3db74c.png)
+
 
 ## Монотонизированная схема
 
@@ -65,7 +75,7 @@ K = K * (1 + r)
 
 Заменим K на новое. И получим:
 
-![image](https://user-images.githubusercontent.com/25401699/157207889-7331adf6-859c-457a-8ea1-ac1959f13663.png)
+![image](https://user-images.githubusercontent.com/25401699/158333445-7bf6eab7-6edd-46ce-a2d5-492b312a86f5.png)
 
 Теперь критерий монотонности выполняется всегда. И график выглядит получше.
 
@@ -109,5 +119,14 @@ Yi+1 [-k/h^2 + VMi+0.5/h] + Yi * [2k/h^2 + VPi+0.5 / h - VMi-0.5 / h] + Yi-1 * [
 
 Получаем что-то такое:
 
-![image](https://user-images.githubusercontent.com/25401699/157215111-5cab3192-327f-4ee3-abe7-92706c6375f0.png)
+![image](https://user-images.githubusercontent.com/25401699/158333506-5ea54ae7-b8c3-4082-925a-44b6fe1aaa3e.png)
 
+## Оцениваем погрешности
+
+Как обычно, получим зависимость погршности от шага. Прологарифмируем и возьмем коэффицент прямой.
+
+![image](https://user-images.githubusercontent.com/25401699/157630263-5eef2f8e-2d4d-4ff3-aafa-1d013dd33145.png)
+
+| Конечная объемная аппроксимация | Монотонизированная схема | Безусловно монотонная схема |
+|---------------------------------|--------------------------|-----------------------------|
+| 2                               | 2                        | 1                           |
