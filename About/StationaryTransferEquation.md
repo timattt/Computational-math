@@ -8,14 +8,18 @@
 ```
 y'' + V(x)y' = f(x)
 
-V(x) = x
-f(x) = -pi^2 * sin(pi * x) + pi * x * cos(pi * x)
+V(x) = e^10x - 10
+f(x) = (-12*x^2 + 0.6 * x + 6.2)
 
 y(0) = 0
 y(1) = 0
 
-y = sin(pi * x)
+y = -x^4 + 0.1 * x^3 + 3.1 * x^2 - 2.2 * x
 ```
+
+График всех коэффициентов:
+
+![image](https://user-images.githubusercontent.com/25401699/158331858-dff9e40b-1552-4d19-acfe-d54fb6b56e1e.png)
 
 ## Конечная объемная апроксимация со вторым порядком
 
