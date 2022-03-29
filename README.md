@@ -14,3 +14,4 @@
 8. [**Астрофизика и решение задачи N-тел**](https://github.com/timattt/Project-computational-math/blob/master/About/NBodies.md)
 9. [**Краевая задача**](https://github.com/timattt/Project-computational-math/blob/master/About/BoundaryValueProblem.md)
 10. [**Решение стационарного уравнения переноса**](https://github.com/timattt/Project-computational-math/blob/master/About/StationaryTransferEquation.md)
+11. [**Решение нестационарного уравнения переноса**](https://github.com/timattt/Project-computational-math/blob/master/About/TransferEquation.md)
