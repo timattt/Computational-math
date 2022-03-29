@@ -1,7 +1,9 @@
 # Избранные задачи вычислительной математики
 В этом репозитории представленны избранные задачи вычислительной математики.
 
-
+# Внимание!
+При прочтении пунктов 9-11 есть вероятность пойти **нахуй**.   
+Будьте осторожны!
 
 # Навигация
 1. [**Дифференцирование**](https://github.com/timattt/Project-computational-math/blob/master/About/Differentiation.md)
@@ -14,3 +16,4 @@
 8. [**Астрофизика и решение задачи N-тел**](https://github.com/timattt/Project-computational-math/blob/master/About/NBodies.md)
 9. [**Краевая задача**](https://github.com/timattt/Project-computational-math/blob/master/About/BoundaryValueProblem.md)
 10. [**Решение стационарного уравнения переноса**](https://github.com/timattt/Project-computational-math/blob/master/About/StationaryTransferEquation.md)
+11. [**Решение нестационарного уравнения переноса**](http://go-friend-go.narod.ru/)
