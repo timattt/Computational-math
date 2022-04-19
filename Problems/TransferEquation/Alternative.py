@@ -3,6 +3,7 @@ from matplotlib import animation
 from scipy import interpolate
 from numpy import where
 from math import sin
+import math
 
 import matplotlib; matplotlib.use('Qt4Agg')
 import matplotlib.pylab as plt
@@ -13,7 +14,7 @@ LNWDT=2; FNT=15
 plt.rcParams['lines.linewidth'] = LNWDT; plt.rcParams['font.size'] = FNT
 
 
-init_func=3   # Select stair case function (0) or sin^2 function (1)
+init_func=4   # Select stair case function (0) or sin^2 function (1)
 
 # function defining the initial condition
 if (init_func==0):
@@ -39,6 +40,11 @@ elif(init_func==3):
         f = np.zeros_like(x)
         f[np.where((x > 0.3) &(x < 0.7) )] = 1.0
         return f
+elif(init_func==4):
+    def f(x):
+        f = np.zeros_like(x)
+        f = where((x>0) & (x<1), np.exp(x),f) 
+        return f
 
 def ftbs(u): # forward time backward space
     u[1:-1] = (1-c)*u[1:-1] + c*u[:-2]
@@ -53,7 +59,28 @@ def lax_wendroff(u):
     u[1:-1] = c/2.0*(1+c)*u[:-2] + (1-c**2)*u[1:-1] - c/2.0*(1-c)*u[2:]
     return u[1:-1]
 
-
+def experimental(u):
+    cp = u.copy()
+    cp[1:-1] = (c**2 - c) / 2 * cp[:-2] + cp[1:-1]*(c-c**2)+cp[2:]*(c-c**2)/2
+    
+    u[1:-1] = (1-c)*u[1:-1] + c*u[:-2]
+    
+    i1 = 0
+    i2 = 0
+    
+    for i in range(len(cp)-1):
+        if (u[i] == 0 and u[i+1] != 0) or (u[i] != 0 and u[i+1] == 0):
+            if i1 == 0:
+                i1 = i
+            else:
+                i2 = i
+                
+    r = 1
+    for i in range(len(cp)-1):
+        if math.fabs(i - i1) < r or math.fabs(i - i2) < r:
+            u[i] += cp[i]
+            
+    return u[1:-1]
 
 # Constants and parameters
 a = 1.0 # wave speed
@@ -75,7 +102,7 @@ time = np.linspace(tmin, tmax, Nt) # discretization of time
 solvers = [ftbs, implicit, lax_wendroff]
 #solvers = [ftbs,lax_wendroff,macCormack]
 #solvers = [ftbs,lax_wendroff]
-#solvers = [ftbs]
+solvers = [experimental]
 
 u_solutions=np.zeros((len(solvers),len(time),len(x)))
 uanalytical = np.zeros((len(time), len(x))) # holds the analytical solution
