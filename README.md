@@ -16,4 +16,5 @@
 8. [**Астрофизика и решение задачи N-тел**](https://github.com/timattt/Project-computational-math/blob/master/About/NBodies.md)
 9. [**Краевая задача**](https://github.com/timattt/Project-computational-math/blob/master/About/BoundaryValueProblem.md)
 10. [**Решение стационарного уравнения переноса**](https://github.com/timattt/Project-computational-math/blob/master/About/StationaryTransferEquation.md)
-11. [**Решение нестационарного уравнения переноса**](http://go-friend-go.narod.ru/)
+11. [**Решение нелинейных гиперболических дифференциальных уравнений в частных производных**](http://go-friend-go.narod.ru/)
+12. [**Решение уравнения теплопроводности**](https://github.com/timattt/Project-computational-math/blob/master/About/EquationOfThermalConductivity.md)
