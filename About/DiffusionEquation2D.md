@@ -42,3 +42,43 @@
 Проверим, что решение действительно больше нуля.
 
 ![image](https://user-images.githubusercontent.com/25401699/166299236-6c11a7df-4b43-479b-8137-d10c48344253.png)
+
+## Тестирование
+
+### Простой случай диаграммы
+
+Возьмем круговую область и будем равномерно накидывать туда точки.
+
+![image](https://user-images.githubusercontent.com/25401699/166300801-a1a69e9e-4d43-4d28-92a5-0cf9e9c5b3bb.png)
+
+Теперь построим диаграмму.
+
+![image](https://user-images.githubusercontent.com/25401699/166300862-d3a7e724-33ba-484a-bc10-8ae69ed7aa12.png)
+
+И получаем решение.
+
+![image](https://user-images.githubusercontent.com/25401699/166300902-c1986a23-f3ae-43a8-badd-96a23bcb45d5.png)
+
+### Сложный случай диаграммы
+
+Возьмем круговую область, но теперь будем в нее накидывать рандомно.
+
+![image](https://user-images.githubusercontent.com/25401699/166301034-a957142a-68d2-482f-ae4c-89753b8966de.png)
+
+И снова построим диаграмму Воронова.
+
+![image](https://user-images.githubusercontent.com/25401699/166301105-3782ef0c-4525-4f7f-941c-5ba88a85fdfd.png)
+
+И решение получается.
+
+![image](https://user-images.githubusercontent.com/25401699/166301188-27d46b55-ff0f-4010-870a-214706aff09f.png)
+
+## Оценка погрешности
+
+Как обычно построим зависимость ошибки от шага и прологарифмируем.
+
+![image](https://user-images.githubusercontent.com/25401699/166301445-403a0f3a-80fa-469e-94b9-f2d785ca8c03.png)
+
+
+Итого погрешность этого метода: **первый порядок**. 
+
