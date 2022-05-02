@@ -19,6 +19,8 @@
 
 <img src="https://user-images.githubusercontent.com/25401699/166263792-ac267d9b-420f-45fd-b5b1-c5a7a9388a90.png" alt="drawing" width="1000"/>
 
+В конце можно **Uj** заменить на полусумму **Ui** и **Uj** для большей точности.
+
 <img src="https://user-images.githubusercontent.com/25401699/166263910-d8ab7c92-854f-41ee-bbfa-0e6a3043b9a4.png" alt="drawing" width="1000"/>
 
 5. Сгрупируем по неизвестным.
