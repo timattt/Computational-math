@@ -37,9 +37,8 @@
 
 Таким образом, чтобы правая часть была больше нуля. Чтобы K было равно -1. И чтобы решение было больше нуля. Получим вот такую ЗК.
 
-![image](https://user-images.githubusercontent.com/25401699/166292676-58503beb-d7b5-4223-88ee-043359403787.png)
+![image](https://user-images.githubusercontent.com/25401699/166299311-5d6057d1-8a37-4173-8986-daf98f0074e5.png)
 
 Проверим, что решение действительно больше нуля.
 
-![image](https://user-images.githubusercontent.com/25401699/166292755-c2763d81-b0ef-45ba-838b-6fc8949fa959.png)
-
+![image](https://user-images.githubusercontent.com/25401699/166299236-6c11a7df-4b43-479b-8137-d10c48344253.png)
