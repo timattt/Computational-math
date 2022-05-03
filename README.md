@@ -15,3 +15,4 @@
 11. [**Уравнение переноса**](https://github.com/timattt/Project-computational-math/blob/master/About/TransferEquation.md)
 12. [**Уравнения теплопроводности**](https://github.com/timattt/Project-computational-math/blob/master/About/ThermalEquation.md)
 13. [**Уравнение диффузии 2D**](https://github.com/timattt/Project-computational-math/blob/master/About/DiffusionEquation2D.md)
+14. [**Гиперболические системы**](https://github.com/timattt/Project-computational-math/blob/master/About/HyperbolicSystems.md)
