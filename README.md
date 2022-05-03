@@ -22,4 +22,4 @@
 
 ## Статьи
 
-1. [**Избранные проблемы вычислительной физики**](https://github.com/timattt/Project-computational-math/blob/master/Articles/ProblemsOfComputationalPhysics.md)
+1. [**Избранные проблемы вычислительной физики**](https://github.com/timattt/Project-computational-math/blob/master/Articles/ProblemsOfComputationalPhysics.md) [**(EN)**](https://github.com/timattt/Project-computational-math/blob/master/Articles/ProblemsOfComputationalPhysicsEn.md)
