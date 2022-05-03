@@ -2,6 +2,9 @@
 В этом репозитории представленны избранные задачи вычислительной математики.
 
 # Навигация
+
+## Численные методы
+
 1. [**Дифференцирование**](https://github.com/timattt/Project-computational-math/blob/master/About/Differentiation.md)
 2. [**Решение СЛАУ**](https://github.com/timattt/Project-computational-math/blob/master/About/SLAE.md)
 3. [**Поиск корней уравнения**](https://github.com/timattt/Project-computational-math/blob/master/About/RootsSearch.md)
@@ -16,3 +19,7 @@
 12. [**Уравнения теплопроводности**](https://github.com/timattt/Project-computational-math/blob/master/About/ThermalEquation.md)
 13. [**Уравнение диффузии 2D**](https://github.com/timattt/Project-computational-math/blob/master/About/DiffusionEquation2D.md)
 14. [**Гиперболические системы**](https://github.com/timattt/Project-computational-math/blob/master/About/HyperbolicSystems.md)
+
+## Статьи
+
+1. [**Избранные проблемы вычислительной физики**](https://github.com/timattt/Project-computational-math/blob/master/Articles/ProblemsOfComputationalPhysics.md)
