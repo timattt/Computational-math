@@ -90,7 +90,7 @@ def draw(A, initFunc):
      
     # call the animator.  blit=True means only re-draw the parts that have changed.
     anim = animation.FuncAnimation(fig, animate, frames = np.arange(0, M, 1), interval=1, blit=False, repeat = True)
-    anim.save("result.gif")
+    #anim.save("result.gif")
      
     plt.show()
 
@@ -133,7 +133,7 @@ def initFunc(x):
 def trueSol(x, t):
     return initFunc(x-t)
 
-#draw(A, initFunc)
+draw(A, initFunc)
 drawInfl(A, initFunc, trueSol)
 
 
