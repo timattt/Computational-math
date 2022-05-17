@@ -33,7 +33,7 @@ def solve(A, initFunc, h, tau, N, M):
     
     for k in range(len(lambdas)):
         lambdaK = lambdas[k]
-        Rs.append(solve_up(lambda x: initFunc(x)[k], lambdaK, h, tau, N, M))
+        Rs.append(solve_up(lambda x: sum([initFunc(x)[i] * va[k][i] for i in range(len(lambdas))]), lambdaK, h, tau, N, M))
 
     Us = ([([[0 for _ in range(len(lambdas))] for i in range(M)]) for j in range(N)])
     for i in range(N):
