@@ -243,5 +243,3 @@ def trueSol(x, y):
     return -r**4/32 + r**4/24*(c**2-s**2) + 5.5 + r/2*s + 2*r/3*c
         
 makeGraph(initFunc, rightFunc, trueSol, createRandom, 100)
-makeGraph(initFunc, rightFunc, trueSol, createRandom1, 10)
-makeInflGraph(initFunc, rightFunc, trueSol)

@@ -14,6 +14,11 @@ from matplotlib.colors import Normalize
 def Lagrange(F, X, x):
     n = len(F)
     
+    if x+0.01 < X[0] or x > X[-1]:
+        print(str(X[0]) + " " + str(x) + " " + str(X[-1]))
+        g = x  / 0
+        print("err")
+    
     L = 0
     
     for k in range(n):
@@ -26,77 +31,132 @@ def Lagrange(F, X, x):
         
     return L
 
-def solve(startU, startS, borderU, borderS, funcC, h, tau, N, M):
+def solve(startU, startS, borderU, borderS, h, tau, N, M):
     s = [[0 for _ in range(N)] for _ in range(M)]
     u = [[0 for _ in range(N)] for _ in range(M)]
+    Rs = [[[0 for _ in range(N)] for _ in range(M)] for _ in range(2)]
     xs = np.linspace(0, N*h, N)
     ts = np.linspace(0, M*h, M)
     # H = H[t][x][y]
+    
+    ro = 1
+    def funcC(s):
+        return math.sqrt(math.sqrt(math.fabs(s)) / ro)
     
     # start conditions
     
     for i in range(N):
         x = i * h
-        s[0][i] = startS(x)
-        u[0][i] = startU(x)
+        S = s[0][i] = startS(x)
+        U = u[0][i] = startU(x)
+        C = funcC(S)
+        l1 = [-C, S]
+        l2 = [C, S]
+        Rs[0][0][i] = l1[0]*S + l1[1]*U
+        Rs[1][0][i] = l2[0]*S + l2[1]*U
+        
     for n in range(M):
         t = n * tau
-        s[n][0] = borderS(t)
-        u[n][0] = borderU(t)
-
+        S = s[n][0] = s[n][-1] = borderS(t)
+        U = u[n][0] = u[n][-1] = borderU(t)
+        C = funcC(S)
+        l1 = [-C, S]
+        l2 = [C, S]
+        Rs[0][n][0] = Rs[0][n][-1] = l1[0]*S + l1[1]*U
+        Rs[1][n][0] = Rs[1][n][-1] = l2[0]*S + l2[1]*U
+    
     for n in range(M-1):
-        for i in range(1, N):
-            S = s[n][i]
-            U = u[n][i]
-            C = funcC(S)
-            for k in range(3):
-                x0 = h - tau * C / S
-                if x0 > 0:
-                    x0 += i * h - h
-                    #S = Lagrange(s[n], xs, x0)
-                    #U = Lagrange(u[n], xs, x0)
-                    S = Lagrange([s[n][i-1], s[n][i]], [i * h - h, i * h], x0)
-                    U = Lagrange([u[n][i-1], u[n][i]], [i * h - h, i * h], x0)
-                else:
-                    S = Lagrange([s[n][i-1], s[n+1][i-1]], [0, tau], -x0 * S/C)
-                    U = Lagrange([u[n][i-1], u[n+1][i-1]], [0, tau], -x0 * S/C)
-                    
-                C = funcC(S)    
+        for i in range(1, N-1):
+            R1 = Rs[0][n][i]
+            R2 = Rs[1][n][i]
+            S = 0
+            C = 0
+            U = 0
+            lambda1 = 0
             
+            for k in range(3):
+                S = math.pow(math.pow((R1-R2)/2, 4), 0.2) * math.sqrt(ro)
+                C = funcC(S)
+
+                # if math.fabs(S) < 0.0001:
+                #     R1 = Rs[0][n+1][i-1]
+                #     R2 = Rs[1][n+1][i-1]
+                #     #U = u[n+1][i-1]
+                #     continue
+                
+                U = (R1 + R2) / (2*S)
+                
+                lambda1 = U + C
+                lambda2 = U - C
+
+                # R1
+                if lambda1 <= 0:
+                    R1 = R1
+                    if lambda1 < -tau / (h * (N-i)):
+                        R1 = R1
+                        #R1 = Lagrange(Rs[0][n], xs, i * h - tau / lambda1)
+                    else:
+                        t0 = lambda1 * (N * h - i * h) + tau * (n+1)
+                        #R1 = Lagrange([Rs[0][n][-1], Rs[0][n+1][-1]], [n*tau , tau*(n+1)], t0)
+                else:
+                    if lambda1 > 1:
+                        x0 = h - tau / lambda1
+                        R1 = Lagrange([Rs[0][n][i-1], Rs[0][n][i]], [0, h], x0)
+                    else:
+                        t0 = tau - h * lambda1
+                        R1 = Lagrange([Rs[0][n][i-1], Rs[0][n+1][i-1]], [0, tau], t0)
+                        
+                # R2
+                if lambda2 <= 0:
+                    R2 = R2
+                    if lambda2 < -tau / (h * (N-i)):
+                        R2 = R2
+                        #R2 = Lagrange(Rs[1][n], xs, i * h - tau / lambda2)
+                    else:
+                        t0 = lambda2 * (N * h - i * h) + tau * (n+1)
+                        #R2 = Lagrange([Rs[1][n][-1], Rs[1][n+1][-1]], [n*tau , tau*(n+1)], t0)
+                else:
+                    if lambda2 > 1:
+                        x0 = h - tau / lambda2
+                        R2 = Lagrange([Rs[1][n][i-1], Rs[1][n][i]], [0, h], x0)
+                    else:
+                        t0 = tau - h * lambda2
+                        R2 = Lagrange([Rs[1][n][i-1], Rs[1][n+1][i-1]], [0, tau], t0)
+                    
+                
+            Rs[0][n+1][i] = R1
+            Rs[1][n+1][i] = R2
             s[n+1][i] = S
             u[n+1][i] = U
-           
+
     return np.array([np.array([s[n][i] for i in range(N)]) for n in range(M)]), np.array([np.array([u[n][i] for i in range(N)]) for n in range(M)])
 
 def startU(x):
-    return 0
+    return 2*math.exp(-x)
 
 def startS(x):
-    return 2
-
-def funcC(s):
-    return math.sqrt(math.sqrt(math.fabs(s)))
+    return 4
 
 def borderS(t):
-    return 4+1.5*math.sin(t)
+    return 4
 
 def borderU(t):
-    return 4+1.5*math.sin(t)
+    return 2
 
 h = 0.1
-tau = 0.5
-N = 50
+tau = 0.1
+N = 100
 M = 500
-ss, us = solve(startU, startS, borderU, borderS, funcC, h, tau, N, M)
-xs = np.arange(0, N * h, h)
-ts = np.arange(0, M * tau, tau)
+ss, us = solve(startU, startS, borderU, borderS, h, tau, N, M)
+xs = np.linspace(0, h * N, N)
+ts = np.linspace(0, M * tau, M)
 
 fig = plt.figure()
 ax = fig.add_subplot()
 
 def data_gen(framenumber):
     ax.clear()
-    ax.set_ylim(-6, 6)
+    #ax.set_ylim(-6, 6)
     plots = [ax.plot(xs, ss[framenumber % M]), ax.plot(xs, -ss[framenumber % M])]
     mx = max(np.fabs(us[framenumber % M]))
     if mx == 0:
@@ -111,5 +171,5 @@ def data_gen(framenumber):
 
 plots = [ax.plot(xs, ss[0]), ax.plot(xs, -ss[0])]
 pam_ani = animation.FuncAnimation(fig, data_gen, interval=1, blit=False)
-pam_ani.save("pipe.gif")
+#pam_ani.save("pipe.gif")
 plt.show()

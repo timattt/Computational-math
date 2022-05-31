@@ -22,7 +22,7 @@ def solve_up(u0, a, h, tau, N, M):
         for i in range (1+j, M+N):
             u[i][j+1] = u[i][j] - k * (u[i][j] - u[i-1][j])
             
-    return np.array([np.array([u[j+i][i] for i in range(M)]) for j in range(N)])
+    return np.array([np.array([u[j+M][i] for i in range(M)]) for j in range(N)])
 
 def solve(A, initFunc, h, tau, N, M):
     lambdas, va = LA.eig(A.transpose())

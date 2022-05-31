@@ -59,12 +59,14 @@ def solve(startU, borderU, h, tau, N, M):
     return np.array([np.array([u[n][i] for i in range(N)]) for n in range(M)])
 
 def startU(x):
-    return 5+math.sin(x)
+    if x > 2:
+        return 3
+    return 5
 
 def borderU(t):
-    return 5+math.cos(t)
+    return 5
 
-h = 0.1
+h = 0.3
 tau = 0.3
 N = 100
 M = 500
