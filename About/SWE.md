@@ -27,3 +27,21 @@ $$
 ![image](https://user-images.githubusercontent.com/25401699/196630369-6b198e9d-46f2-4864-ba0a-16c8d04cd565.png)
 
 Теперь можем умножить на левые собственные векторы и ввести инварианты Римана.
+
+$$
+r = u + 2c
+$$
+
+$$
+s = u - 2c
+$$
+
+Тогда имеем:
+
+$$
+\frac{\partial s}{\partial t} + (\frac{1}{4}r + \frac{3}{4}s)\frac{\partial s}{\partial x} = 0
+$$
+
+$$
+\frac{\partial r}{\partial t} + (\frac{3}{4}r + \frac{1}{4}s)\frac{\partial r}{\partial x} = 0
+$$
