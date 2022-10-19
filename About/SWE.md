@@ -10,7 +10,8 @@ $$
 
 Перепишем в матричном виде:
 
-![image](https://user-images.githubusercontent.com/25401699/196695879-f8bc6d78-cf92-4ba6-80f1-7e2a0cf2b127.png)
+<img src="https://user-images.githubusercontent.com/25401699/196695879-f8bc6d78-cf92-4ba6-80f1-7e2a0cf2b127.png" alt="drawing" width="500"/>
+
 
 Найдем собственные числа.
 
