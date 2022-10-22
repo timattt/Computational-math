@@ -1,13 +1,15 @@
 # Уравнения мелкой воды
 
-$$
- \frac{\partial H}{\partial t} + \frac{\partial (H u)}{\partial x} = 0
-$$
+Имеем вот такую систему.
 
 $$
-\frac{\partial (H u)}{\partial t} + \frac{\partial (H u^2)}{\partial x} + g H \frac{\partial H}{\partial x} = 0
+\begin{cases}
+   \frac{\partial H}{\partial t} + \frac{\partial (H u)}{\partial x} = 0\\
+  \frac{\partial (H u)}{\partial t} + \frac{\partial (H u^2)}{\partial x} + g H \frac{\partial H}{\partial x} = 0
+\end{cases}\
 $$
 
+Где u - скорость слоя жидкости. H - высота слоя жидкости.
 
 Перепишем в матричном виде:
 
