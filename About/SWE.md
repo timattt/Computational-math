@@ -93,4 +93,14 @@ $$
 U_t \approx \frac{U_i^{j+1} - U_i^j}{\tau}
 $$
 
+Подставляем наши авпроксимации и получаем систему из двух неизвестных.
 
+$$
+H_i^{j+1} * [-\frac{c_i^j}{\tau}] + u_i^{j+1} * [\frac{H_i^j}{\tau}] = -\frac{c_i^j H_i^j}{\tau} + c_i^{j} L_{\lambda_1}[H]_i^{j} + \frac{H_i^j u_i^j}{\tau} - H_i^j L_{\lambda_1}[u]_i^{j}
+$$
+
+
+
+$$
+H_i^{j+1} * [\frac{c_i^j}{\tau}] + u_i^{j+1} * [\frac{H_i^j}{\tau}] = \frac{c_i^j H_i^j}{\tau} - c_i^{j} L_{\lambda_2}[H]_i^{j} + \frac{h_i^j u_i^j}{\tau} - h_i^j L_{\lambda_2}[u]_i^{j}
+$$
