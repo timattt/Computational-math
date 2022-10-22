@@ -86,7 +86,11 @@ $$
 И будем аппроксимировать таким образом:
 
 $$
-\lambda_k U_x = L_{\lambda_k}[U]_i^{j}
+\lambda_k U_x \approx L_{\lambda_k}[U]_i^{j}
+$$
+
+$$
+U_t \approx \frac{U_i^{j+1} - U_i^j}{\tau}
 $$
 
 
