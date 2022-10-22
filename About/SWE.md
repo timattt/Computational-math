@@ -8,7 +8,28 @@ $$
 \frac{\partial (h u)}{\partial t} + \frac{\partial (h u^2)}{\partial x} + g h \frac{\partial h}{\partial x} = 0
 $$
 
+
 Перепишем в матричном виде:
+
+$$
+\begin{pmatrix}
+\frac{\partial h}{\partial t} \\
+\frac{\partial u}{\partial t}
+\end{pmatrix}
++
+\begin{pmatrix}
+u & h \\
+g & u
+\end{pmatrix}
+*
+\frac{\partial}{\partial x}
+\begin{pmatrix}
+h \\
+u
+\end{pmatrix}
+\text{=}
+\vec 0
+$$
 
 <img src="https://user-images.githubusercontent.com/25401699/196695879-f8bc6d78-cf92-4ba6-80f1-7e2a0cf2b127.png" alt="drawing" width="500"/>
 
