@@ -1,11 +1,11 @@
 # Уравнения мелкой воды
 
 $$
- \frac{\partial h}{\partial t} + \frac{\partial (h u)}{\partial x} = 0
+ \frac{\partial H}{\partial t} + \frac{\partial (H u)}{\partial x} = 0
 $$
 
 $$
-\frac{\partial (h u)}{\partial t} + \frac{\partial (h u^2)}{\partial x} + g h \frac{\partial h}{\partial x} = 0
+\frac{\partial (H u)}{\partial t} + \frac{\partial (H u^2)}{\partial x} + g H \frac{\partial H}{\partial x} = 0
 $$
 
 
@@ -13,18 +13,18 @@ $$
 
 $$
 \begin{pmatrix}
-\frac{\partial h}{\partial t} \\
+\frac{\partial H}{\partial t} \\
 \frac{\partial u}{\partial t}
 \end{pmatrix}
 +
 \begin{pmatrix}
-u & h \\
+u & H \\
 g & u
 \end{pmatrix}
 *
 \frac{\partial}{\partial x}
 \begin{pmatrix}
-h \\
+H \\
 u
 \end{pmatrix}
 \text{=}
@@ -35,9 +35,9 @@ $$
 
 $$
 \det \begin{pmatrix}
-u -\lambda & h \\
+u -\lambda & H \\
 g & u - \lambda
-\end{pmatrix} \text{=} (u - \lambda)^2 - g h \text{=} 0
+\end{pmatrix} \text{=} (u - \lambda)^2 - g H \text{=} 0
 $$
 
 $$
@@ -47,7 +47,7 @@ $$
 где 
 
 $$
-c = \sqrt{g h}
+c = \sqrt{g H}
 $$
 
 Тогда легко найти собственные векторы:
@@ -55,15 +55,27 @@ $$
 $$
 \vec l_1 = 
 \begin{pmatrix}
--c & h
+-c & H
 \end{pmatrix}
 $$
 
 $$
 \vec l_2 = 
 \begin{pmatrix}
-c & h
+c & H
 \end{pmatrix}
 $$
 
-Теперь мы умножаем исходную систему на собственные векторы слева.
+Теперь мы умножаем исходную систему в матричном виде на собственные векторы слева. Произведение матрицы и ее собственного вектора преобразуем
+по определению собственного вектора. И получаем два выражения.
+
+$$
+-(H_t + \lambda_1 H_x) c + (u_t + \lambda_1 u_x) H = 0
+$$
+
+$$
+(H_t + \lambda_2 H_x) c + (u_t + \lambda_2 u_x) H = 0
+$$
+
+
+
