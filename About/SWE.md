@@ -55,16 +55,14 @@ $$
 $$
 \vec l_1 = 
 \begin{pmatrix}
--c \\
-h
+-c & h
 \end{pmatrix}
 $$
 
 $$
 \vec l_2 = 
 \begin{pmatrix}
-c \\
-h
+c & h
 \end{pmatrix}
 $$
 
