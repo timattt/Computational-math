@@ -149,3 +149,14 @@ $$u(t = 0) = 0$$
 $$H(x, t = 0) = 1 + e^{-500(x-\frac{L}{2})^2}$$
 
 ![Recording 2022-10-23 at 12 13 26](https://user-images.githubusercontent.com/25401699/197384116-8a98acf4-2a67-475b-af4e-72123cc7eec7.gif)
+
+### Равномерный синус
+
+$$L = 1$$
+
+$$u(t = 0) = 0$$
+
+$$H(x, t = 0) = 0.1 + 0.01\sin(10*\frac{x}{L})$$
+
+![Recording 2022-10-23 at 12 21 29](https://user-images.githubusercontent.com/25401699/197384374-0ae6a0da-c821-4b1c-9bdf-ac00808fb192.gif)
+
