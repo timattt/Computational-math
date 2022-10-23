@@ -1,25 +1,24 @@
-import math
-from numpy.typing.tests.data.fail import ndarray
-
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
-
+from matplotlib.pyplot import cm
 
 g = 9.8
-N = 200 # x
+N = 100 # x
 M = 1000 # t
-h = 0.005 # dx
+h = 0.01 # dx
 tau = 0.001 # dt
 
 L = N*h
+
+print("Task: L = {}".format(L))
 
 H = np.zeros((N, M))
 U = np.zeros((N, M))
 # U[i - x][j - t]
 
 Ustartcond = 0 * np.arange(N)
-Hstartcond = np.array([1+h*np.exp(-x*10) for x in np.arange(0, L, h)])#np.array([1+h*np.abs(np.sin(x*100))*np.exp(-100*(x-L/2)**2) for x in np.arange(0, L, h)])#(1+h*np.exp(-(np.arange(N)-N/2)**2/10))
+Hstartcond = np.array([0.1 + h*np.sin(10*x/L) for x in np.arange(0, L, h)])#(1+h*np.exp(-(np.arange(N)-N/2)**2/10))
 
 U[:, 0] = Ustartcond
 H[:, 0] = Hstartcond
@@ -58,10 +57,7 @@ def getC(i, j):
     return np.sqrt(g * H[i][j])
 
 xs = np.arange(0, N * h, h)
-fig, ax = plt.subplots()
-plt.plot(xs, H[:, 0])
-plt.show()
-#quit(0)
+
 Hmin = 10000.0
 Hmax = -10000.0
 
@@ -91,8 +87,8 @@ for j in range(0, M-1):
         #print("result: H={}, U={}".format(H[i, j+1], U[i, j+1]))
         
     # border
-    U[0, j+1] = U[1, j+1]
-    U[-1, j+1] = U[-2, j+1]
+    U[0, j+1] = 0#np.sin(j / M)#U[1, j+1]
+    U[-1, j+1] = 0#U[-2, j+1]
     
     # left
     lam1 = lambda1(U[0, j], H[0, j])
@@ -169,16 +165,37 @@ for j in range(0, M-1):
         
     #print("right border: U={}, H={}".format( U[-1, j+1], H[-1, j+1]))
     
-fig, ax = plt.subplots()
-ax.set_ylim(bottom = Hmin, top = Hmax)
-line, = ax.plot(xs, H[:, 0])
-
-
+figure, axis = plt.subplots(3)
+    
+axis[0].set_ylim(bottom = 0.999*np.min(H[:, 0])-h, top = 1.001*np.max(H[:, 0])+h)
+axis[0].plot(xs, H[:, 0])
+axis[0].set_ylabel("H(x)")
+axis[0].grid()
+axis[0].set_title("Start conditions")
+    
+axis[1].set_ylabel("H(x)")
+axis[1].grid()
+axis[1].set_title("Process")
+axis[1].set_ylim(bottom = Hmin-h, top = Hmax+h)
+line, = axis[1].plot(xs, H[:, 0])
 
 def animate(i):
     line.set_ydata(H[:, i % M])  # update the data.
     return line,
 
-ani = animation.FuncAnimation(fig, animate, interval=20, blit=True, save_count=50)
+ani = animation.FuncAnimation(figure, animate, interval=1, blit=True)
 
+axis[2].set_title("Rainbow")
+axis[2].set_xlabel("x")
+axis[2].set_ylabel("H(x)")
+axis[2].set_ylim(bottom = 0.07, top = 0.13)
+axis[2].set_xlim(left = 0, right = 1)
+color = iter(cm.rainbow(np.linspace(0, 1, M)))
+
+for i in range(M):
+    x, y = xs, H[:, i]
+    c = next(color)
+    axis[2].plot(x, y, color = c)
+    
 plt.show()
+    
