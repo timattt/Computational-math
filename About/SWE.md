@@ -158,5 +158,4 @@ $$u(t = 0) = 0$$
 
 $$H(x, t = 0) = 0.1 + 0.01\sin(10*\frac{x}{L})$$
 
-![Recording 2022-10-23 at 12 21 29](https://user-images.githubusercontent.com/25401699/197384374-0ae6a0da-c821-4b1c-9bdf-ac00808fb192.gif)
-
+![Recording 2022-10-23 at 12 25 43](https://user-images.githubusercontent.com/25401699/197384494-035cf517-f02f-498e-9e8c-4af38c5496a7.gif)
