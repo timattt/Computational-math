@@ -149,6 +149,8 @@ $$u(t = 0) = 0$$
 
 $$H(x, t = 0) = 1 + e^{-500(x-\frac{L}{2})^2}$$
 
+$$u(x = 0, t) = u(x = L, t) = 0$$
+
 ![Recording 2022-10-23 at 12 13 26](https://user-images.githubusercontent.com/25401699/197384116-8a98acf4-2a67-475b-af4e-72123cc7eec7.gif)
 
 ### Равномерный синус
@@ -158,6 +160,8 @@ $$L = 1$$
 $$u(t = 0) = 0$$
 
 $$H(x, t = 0) = 0.1 + 0.01\sin(10*\frac{x}{L})$$
+
+$$u(x = 0, t) = u(x = L, t) = 0$$
 
 ![Recording 2022-10-23 at 12 25 43](https://user-images.githubusercontent.com/25401699/197384494-035cf517-f02f-498e-9e8c-4af38c5496a7.gif)
 
