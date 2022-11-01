@@ -322,3 +322,12 @@ $$
 $$
 \delta H(x = 0) = 0
 $$
+
+$$
+\delta u(x = L) = \frac{\alpha \sin(\frac{\pi}{L\sqrt{g}} t)}{\sqrt{g}}
+$$
+
+
+$$
+\delta H(x = L) = 0
+$$
