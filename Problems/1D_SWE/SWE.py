@@ -18,7 +18,8 @@ U = np.zeros((N, M))
 # U[i - x][j - t]
 
 Ustartcond = 0 * np.arange(N)
-Hstartcond = np.array([0.1 + h*np.sin(10*x/L) for x in np.arange(0, L, h)])#(1+h*np.exp(-(np.arange(N)-N/2)**2/10))
+#Hstartcond = np.array([1 + np.exp(-500*(x-L/2)**2) for x in np.arange(0, L, h)])
+Hstartcond = (1+h*np.exp(-(np.arange(N)-N/2)**2/10))
 
 U[:, 0] = Ustartcond
 H[:, 0] = Hstartcond
@@ -188,7 +189,8 @@ ani = animation.FuncAnimation(figure, animate, interval=1, blit=True)
 axis[2].set_title("Rainbow")
 axis[2].set_xlabel("x")
 axis[2].set_ylabel("H(x)")
-axis[2].set_ylim(bottom = 0.07, top = 0.13)
+axis[2].set_ylim(bottom = Hmin-h, top = Hmax+h)
+#axis[2].set_ylim(bottom = 0.07, top = 0.13)
 axis[2].set_xlim(left = 0, right = 1)
 color = iter(cm.rainbow(np.linspace(0, 1, M)))
 
