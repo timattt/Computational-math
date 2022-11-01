@@ -20,7 +20,8 @@
 13. [**Уравнение диффузии 2D ★**](https://github.com/timattt/Project-computational-math/blob/master/About/DiffusionEquation2D.md)
 14. [**Гиперболические системы**](https://github.com/timattt/Project-computational-math/blob/master/About/HyperbolicSystems.md)
 15. [**Уравнение Хопфа**](https://github.com/timattt/Project-computational-math/blob/master/About/ShallowWater.md)
-16. [**Уравнения мелкой воды ★**](https://github.com/timattt/Project-computational-math/blob/master/About/SWE.md)
+16. [**Одномерное уравнение мелкой воды**](https://github.com/timattt/Project-computational-math/blob/master/About/SWE.md)
+17. [**Двумерное уравнение мелкой воды ★**](https://github.com/timattt/Project-computational-math/blob/master/About/2DSWE.md)
 
 ## Статьи
 
