@@ -233,5 +233,25 @@ $$
 
 ## Экспонента в центре
 
+### Начальные условия
+
+$$
+\begin{cases}
+h = 0.01\\
+\tau = 0.001\\
+N = 30\\
+M = 200\\
+L = N * h = 0.3
+\end{cases}
+$$
+
+$$
+H(x, y) = 1 + 0.3*h* \exp(-500*((x-\frac{L}{2})^2 + (y-\frac{L}{2})^2))
+$$
+
+![image](https://user-images.githubusercontent.com/25401699/199317900-36ad95fc-f74b-4832-a31f-3734516916e0.png)
+
+### Процесс
+
 ![test](https://user-images.githubusercontent.com/25401699/199316580-75828ff5-873b-49bb-8d44-f427816d98fa.gif)
 
