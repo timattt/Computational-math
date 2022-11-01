@@ -258,7 +258,7 @@ $$
 
 
 $$
-R_2 = (\vec \delta U * \vec l_2) = - \deltaH + \sqrt{g} \delta u
+R_2 = (\vec \delta U * \vec l_2) = - \delta H + \sqrt{g} \delta u
 $$
 
 И тогда имеем два независимых уравнения.
