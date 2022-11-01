@@ -253,12 +253,12 @@ $$
 Введем инварианты Римана.
 
 $$
-R_1 = (\vec \delta U * \vec l_1) = \delta H + \sqrt{g} \delta u
+R_1 = (\vec {\delta U} * \vec l_1) = \delta H + \sqrt{g} \delta u
 $$
 
 
 $$
-R_2 = (\vec \delta U * \vec l_2) = - \delta H + \sqrt{g} \delta u
+R_2 = (\vec {\delta U} * \vec l_2) = - \delta H + \sqrt{g} \delta u
 $$
 
 И тогда имеем два независимых уравнения.
