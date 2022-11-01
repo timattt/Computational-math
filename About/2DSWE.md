@@ -146,3 +146,37 @@ u \\
 v + c
 \end{pmatrix}
 $$
+
+### Численное решение
+
+Будем решать нашу задачу в два этапа.
+На первом этапе решаем задачу вот такую:
+
+$$
+\frac{\partial}{\partial t} \vec U + A \frac{\partial}{\partial x} \vec U = 0
+$$
+
+Будем умножать эта равенство последовательно на i-ый левый собственный вектор матрицы A.
+
+$$
+(\vec l_i * \frac{\partial}{\partial t} \vec U) + (\vec l_i * A \frac{\partial}{\partial x} \vec U) = 0
+$$
+
+Преобразуем исходя из определения собственного вектора.
+
+
+$$
+(\vec l_i * \frac{\partial}{\partial t} \vec U) + (\vec l_i * \lambda_i \frac{\partial}{\partial x} \vec U) = 0
+$$
+
+Теперь будем апроксимировать производную по пространству оператором из одномерного случая.
+
+$$
+(\vec l_i * \frac{\partial}{\partial t} \vec U) + (\vec l_i * \lambda_i L_{\lambda_i}[\vec U]) = 0
+$$
+
+Теперь апросимируем по времени.
+
+$$
+(\vec l_i * \frac{\hat{\vec U} - \vec U}{\tau) + (\vec l_i * \lambda_i L_{\lambda_i}[\vec U]) = 0
+$$
