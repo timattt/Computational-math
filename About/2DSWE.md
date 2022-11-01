@@ -178,5 +178,18 @@ $$
 Теперь апросимируем по времени.
 
 $$
-(\vec l_i * \frac{\hat{\vec U} - \vec U}{\tau) + (\vec l_i * \lambda_i L_{\lambda_i}[\vec U]) = 0
+(\vec l_i * \frac{\hat{\vec U} - \vec U}{\tau} + (\vec l_i * \lambda_i L_{\lambda_i}[\vec U]) = 0
+$$
+
+Теперь пусть мы уже посчитали сетку на k-ом временном слое. Пусть эта сетка U. Тогда отсюда мы легко найдем U с шляпкой.
+Для этого запишем последнее уравнение для всех трех собственных векторов.
+
+$$
+$$
+\begin{cases}
+   \frac{\hat{p} - p}{\tau} + (\vec l_1 * \lambda_1 L_{\lambda_1}[\vec U]) = 0 \\
+   \frac{\hat{H} - H}{\tau} + q_t (u-c) + p_t v + (\vec l_2 * L_{\lambda_2}[\vec U] = 0
+   \frac{\hat{H} - H}{\tau} + q_t (u+c) + p_t v + (\vec l_3 * L_{\lambda_3}[\vec U] = 0
+\end{cases}\
+$$
 $$
