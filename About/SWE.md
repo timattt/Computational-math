@@ -173,4 +173,78 @@ $$u(x = 0, t) = u(x = L, t) = 0$$
 
 ### Линеаризация
 
+Пусть 
 
+$$
+u(x, t) = u_0 + \delta u
+$$
+
+$$
+H(x, t) = H_0 + \delta H
+$$
+
+положим тут
+$$
+H_0 = 1
+$$
+
+$$
+u_0 = 0
+$$
+
+Теперь подставим это в нашу исходную систему.
+
+$$
+\begin{cases}
+   \frac{\partial}{\partial t}(\delta H) + \frac{\partial}{\partial x}(\delta u (1 + \delta H)) = 0\\
+  \frac{\partial}{\partial t}(\delta u + \delta u \delta H) + \frac{\partial}{\partial x}((1 + \delta H)\delta u^2) + g (1+\delta H) \frac{\partial}{\partial x}(\delta H) = 0
+\end{cases}\
+$$
+
+Или в матричном виде:
+
+$$
+\begin{pmatrix}
+\frac{\partial \delta H}{\partial t} \\
+\frac{\partial \delta u}{\partial t}
+\end{pmatrix}
++
+\begin{pmatrix}
+0 & 1 \\
+g & 0
+\end{pmatrix}
+*
+\frac{\partial}{\partial x}
+\begin{pmatrix}
+\delta H \\
+\delta u
+\end{pmatrix}
+\text{=}
+\vec 0
+$$
+
+Решим спектральную задачу.
+
+$$
+\lambda_1 = \sqrt{g}
+$$
+
+$$
+\vec l_1 = 
+\begin{pmatrix}
+1 \\
+\sqrt{g}
+\end{pmatrix}
+$$
+
+$$
+\lambda_2 = -\sqrt{g}
+$$
+
+$$
+\vec l_2 = 
+\begin{pmatrix}
+-1 \\
+\sqrt{g}
+\end{pmatrix}
+$$
