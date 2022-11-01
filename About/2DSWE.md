@@ -187,9 +187,9 @@ $$
 
 $$
 \begin{cases}
-   \frac{\hat{p} - p}{\tau} + (\vec l_1 * \lambda_1 L_{\lambda_1}[\vec U]) = 0 \\
-   \frac{\hat{H} - H}{\tau} + q_t (u-c) + p_t v + (\vec l_2 * L_{\lambda_2}[\vec U] = 0
-   \frac{\hat{H} - H}{\tau} + q_t (u+c) + p_t v + (\vec l_3 * L_{\lambda_3}[\vec U] = 0
+   p_t + (\vec l_1 * \lambda_1 L_{\lambda_1}[\vec U]) = 0 \\
+   H_t + q_t (u-c) + p_t v + (\vec l_2 * L_{\lambda_2}[\vec U] = 0 \\
+   H_t + q_t (u+c) + p_t v + (\vec l_3 * L_{\lambda_3}[\vec U] = 0
 \end{cases}\
 $$
 
