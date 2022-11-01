@@ -96,3 +96,53 @@ u + c \\
 v
 \end{pmatrix}
 $$
+
+### Матрица при dy
+
+$$
+B = \begin{pmatrix}
+0 & 0 & 1 \\
+-u v & v & u \\
+g H - v^2 & 0 & 2 v
+\end{pmatrix}
+$$
+
+Тогда собственные значения и их собственные векторы будут:
+
+$$
+\lambda_1 = v
+$$
+
+$$
+\vec l_1 = \begin{pmatrix}
+0 \\
+1 \\
+0
+\end{pmatrix}
+$$
+
+
+$$
+\lambda_2 = v - c
+$$
+
+$$
+\vec l_2 = \begin{pmatrix}
+1 \\
+u \\
+v - c
+\end{pmatrix}
+$$
+
+
+$$
+\lambda_3 = v + c
+$$
+
+$$
+\vec l_3 = \begin{pmatrix}
+1 \\
+u \\
+v + c
+\end{pmatrix}
+$$
