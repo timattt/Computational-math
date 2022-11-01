@@ -311,3 +311,14 @@ $$
 $$
 \delta H = \frac{R_1 - R_2}{2} = \frac{\alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )+\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )}{2}
 $$
+
+Тогда можно сгенерировать отсюда и граничные условия:
+
+$$
+\delta u(x = 0) = \frac{-\alpha \sin(\frac{\pi}{L\sqrt{g}} t)}{\sqrt{g}}
+$$
+
+
+$$
+\delta H(x = 0) = 0
+$$
