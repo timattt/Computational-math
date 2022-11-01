@@ -267,5 +267,5 @@ $$
 
 ### Процесс
 
-![test](https://user-images.githubusercontent.com/25401699/199316580-75828ff5-873b-49bb-8d44-f427816d98fa.gif)
+![test](https://user-images.githubusercontent.com/25401699/199325460-e18ee4fa-093e-46d5-862a-a265464d9224.gif)
 
