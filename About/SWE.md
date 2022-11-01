@@ -301,3 +301,13 @@ $$
 $$
 R_2(x, t) = -\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )
 $$
+
+Итоговые решение будут такими:
+
+$$
+\delta u = \frac{R_1 + R_2}{2\sqrt{g}} = \frac{\alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )-\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )}{2 \sqrt{g}}
+$$
+
+$$
+\delta H = \frac{R_1 - R_2}{2} = \frac{\alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )+\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )}{2}
+$$
