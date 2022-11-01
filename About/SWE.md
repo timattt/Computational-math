@@ -270,3 +270,34 @@ $$
 $$
 \frac{\partial}{\partial t} R_2 - \sqrt{g} \frac{\partial}{\partial x} R_2 = 0
 $$
+
+Теперь придумаем задачу.
+За основу возьмем задачу Коши.
+
+$$
+\delta H (t = 0) = \alpha \sin(\frac{\pi x}{L})
+$$
+
+$$
+\delta u (t = 0) = 0
+$$
+
+Тогда начальные условия для инвариантов будут такими:
+
+$$
+R_1(t = 0) = \alpha \sin(\frac{\pi x}{L})
+$$
+
+$$
+R_2(t = 0) = -\alpha \sin(\frac{\pi x}{L})
+$$
+
+И тогда общее решение будет такое:
+
+$$
+R_1(x, t) = \alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )
+$$
+
+$$
+R_2(x, t) = -\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )
+$$
