@@ -249,3 +249,24 @@ $$
 \sqrt{g}
 \end{pmatrix}
 $$
+
+Введем инварианты Римана.
+
+$$
+R_1 = (\vec \delta U * \vec l_1) = \delta H + \sqrt{g} \delta u
+$$
+
+
+$$
+R_2 = (\vec \delta U * \vec l_2) = - \deltaH + \sqrt{g} \delta u
+$$
+
+И тогда имеем два независимых уравнения.
+
+$$
+\frac{\partial}{\partial t} R_1 + \sqrt{g} \frac{\partial}{\partial x} R_1 = 0
+$$
+
+$$
+\frac{\partial}{\partial t} R_2 - \sqrt{g} \frac{\partial}{\partial x} R_2 = 0
+$$
