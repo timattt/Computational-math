@@ -65,9 +65,21 @@ $$
 
 ![image](https://user-images.githubusercontent.com/25401699/145378708-d6481b69-1282-44a9-a1cf-78529644c305.png)
 
-**Пример решения:**
+### Метод Рунге-Кутты
+
+Самый популярный метод численного решения ЗК 4ого порядка.
+
+![image](https://user-images.githubusercontent.com/25401699/145380431-19e3c881-2c3d-403d-a81f-9a481f75b7dc.png)
+
+### Примеры решения дифуров
 
 ![image](https://user-images.githubusercontent.com/25401699/145378783-9ccec97a-8f02-4dd5-ab07-d716086c9fca.png)
+
+![image](https://user-images.githubusercontent.com/25401699/145380146-51a8abad-4f0a-4916-aff9-8a5ae8dca733.png)
+
+![image](https://user-images.githubusercontent.com/25401699/145380355-1af24fb0-2d98-4c98-9180-65d9b7c8c43c.png)
+
+![image](https://user-images.githubusercontent.com/25401699/145380453-d61fdc5d-7de8-43e3-8875-4cc53f62a42a.png)
 
 ## Задача N тел
 
