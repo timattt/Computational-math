@@ -39,7 +39,21 @@ $$
 \beta & \alpha_1 & \beta & 0 & 0 \\
 0 & \beta & \alpha_2 & \beta & 0 \\
 0 & 0 & \beta & \alpha_3 & \beta \\
-0 & 0 & 0 & \beta & \alpha_4 \\
-
+0 & 0 & 0 & \beta & \alpha_4
+\end{pmatrix}
+\begin{pmatrix}
+\psi_0 \\
+\psi_1 \\
+\psi_2 \\
+\psi_3 \\
+\psi_4
+\end{pmatrix}=
+E
+\begin{pmatrix}
+\psi_0 \\
+\psi_1 \\
+\psi_2 \\
+\psi_3 \\
+\psi_4
 \end{pmatrix}
 $$
