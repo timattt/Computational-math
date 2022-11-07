@@ -15,5 +15,31 @@ $$
 Теперь сделаем апроксимацию:
 
 $$
-[ \hat H \psi ]_i = -ъ\frac{1}{h^2}[{\psi}_{i-1} - 2\psi_i + \psi_{i+1}] + U_i \psi_i
+\hat H \psi_i = ъ\frac{1}{h^2}[ \psi_{i-1} - 2\psi_i + \psi_{i+1}] + U_i \psi_i = \psi_{i-1} \frac{ъ}{h^2} + \psi_i [U_i - 2\frac{ъ}{h^2}] + \psi_{i+1}\frac{ъ}{h^2} =
+\beta \psi_{i-1} + \alpha_i \psi_i + \beta \psi_{i+1}
+$$
+
+Учтем граничные условия:
+
+$$
+\lim_{x \to -\infty} \psi(x) = \lim_{x \to +\infty} \psi(x) = 0 
+$$
+
+Но в рамках конечной сетки это означает, что
+
+$$
+\psi_{-1} = \psi_{N+1} = 0
+$$
+
+Тогда имея сетку из N узлов получим матрицу линейного оператора над вектором-сеткой:
+
+$$
+\begin{pmatrix}
+\alpha_0 & \beta & 0 & 0 & 0 \\
+\beta & \alpha_1 & \beta & 0 & 0 \\
+0 & \beta & \alpha_2 & \beta & 0 \\
+0 & 0 & \beta & \alpha_3 & \beta \\
+0 & 0 & 0 & \beta & \alpha_4 \\
+
+\end{pmatrix}
 $$
