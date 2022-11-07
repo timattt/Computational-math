@@ -173,4 +173,164 @@ $$u(x = 0, t) = u(x = L, t) = 0$$
 
 ### Линеаризация
 
+Пусть 
 
+$$
+u(x, t) = u_0 + \delta u
+$$
+
+$$
+H(x, t) = H_0 + \delta H
+$$
+
+положим тут
+
+$$
+H_0 = 1
+$$
+
+$$
+u_0 = 0
+$$
+
+Теперь подставим это в нашу исходную систему.
+
+$$
+\begin{cases}
+   \frac{\partial}{\partial t}(\delta H) + \frac{\partial}{\partial x}(\delta u (1 + \delta H)) = 0\\
+  \frac{\partial}{\partial t}(\delta u + \delta u \delta H) + \frac{\partial}{\partial x}((1 + \delta H)\delta u^2) + g (1+\delta H) \frac{\partial}{\partial x}(\delta H) = 0
+\end{cases}\
+$$
+
+Или в матричном виде:
+
+$$
+\begin{pmatrix}
+\frac{\partial \delta H}{\partial t} \\
+\frac{\partial \delta u}{\partial t}
+\end{pmatrix}
++
+\begin{pmatrix}
+0 & 1 \\
+g & 0
+\end{pmatrix}
+*
+\frac{\partial}{\partial x}
+\begin{pmatrix}
+\delta H \\
+\delta u
+\end{pmatrix}
+\text{=}
+\vec 0
+$$
+
+Решим спектральную задачу.
+
+$$
+\lambda_1 = \sqrt{g}
+$$
+
+$$
+\vec l_1 = 
+\begin{pmatrix}
+1 \\
+\sqrt{g}
+\end{pmatrix}
+$$
+
+$$
+\lambda_2 = -\sqrt{g}
+$$
+
+$$
+\vec l_2 = 
+\begin{pmatrix}
+-1 \\
+\sqrt{g}
+\end{pmatrix}
+$$
+
+Введем инварианты Римана.
+
+$$
+R_1 = (\vec {\delta U} * \vec l_1) = \delta H + \sqrt{g} \delta u
+$$
+
+
+$$
+R_2 = (\vec {\delta U} * \vec l_2) = - \delta H + \sqrt{g} \delta u
+$$
+
+И тогда имеем два независимых уравнения.
+
+$$
+\frac{\partial}{\partial t} R_1 + \sqrt{g} \frac{\partial}{\partial x} R_1 = 0
+$$
+
+$$
+\frac{\partial}{\partial t} R_2 - \sqrt{g} \frac{\partial}{\partial x} R_2 = 0
+$$
+
+Теперь придумаем задачу.
+За основу возьмем задачу Коши.
+Здесь альфа - мало.
+
+$$
+\delta H (t = 0) = \alpha \sin(\frac{\pi x}{L})
+$$
+
+$$
+\delta u (t = 0) = 0
+$$
+
+Тогда начальные условия для инвариантов будут такими:
+
+$$
+R_1(t = 0) = \alpha \sin(\frac{\pi x}{L})
+$$
+
+$$
+R_2(t = 0) = -\alpha \sin(\frac{\pi x}{L})
+$$
+
+И тогда общее решение будет такое:
+
+$$
+R_1(x, t) = \alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )
+$$
+
+$$
+R_2(x, t) = -\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )
+$$
+
+Итоговые решение будут такими:
+
+$$
+\delta u = \frac{R_1 + R_2}{2\sqrt{g}} = \frac{\alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )-\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )}{2 \sqrt{g}}
+$$
+
+$$
+\delta H = \frac{R_1 - R_2}{2} = \frac{\alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )+\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )}{2}
+$$
+
+Тогда можно сгенерировать отсюда и граничные условия:
+
+$$
+\delta u(x = 0) = \frac{-\alpha \sin(\frac{\pi}{L\sqrt{g}} t)}{\sqrt{g}}
+$$
+
+
+$$
+\delta H(x = 0) = 0
+$$
+
+$$
+\delta u(x = L) = \frac{\alpha \sin(\frac{\pi}{L\sqrt{g}} t)}{\sqrt{g}}
+$$
+
+
+$$
+\delta H(x = L) = 0
+$$
+
+Теперь эти начальные и граничные условия можно подать на вход программе и сравнить с линеаризованным решением.
