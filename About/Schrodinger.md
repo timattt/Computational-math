@@ -15,5 +15,5 @@ $$
 Теперь сделаем апроксимацию:
 
 $$
-[ \hat H \psi ]_i = -ъ\frac{1}{h^2}[\psi_{i-1} - 2\psi_i + \psi_{i+1}]] + \U_i \psi_i
+[ \hat H \psi ]_i = -ъ\frac{1}{h^2}[{\psi}_{i-1} - 2\psi_i + \psi_{i+1}] + U_i \psi_i
 $$
