@@ -43,10 +43,11 @@ for i in range(Task.N):
         if E < Umax and E > Umin:
             psi_ *= (Umax-Umin)/(np.max(psi_)-np.min(psi_))/e/totalDiscrete
             psi_ += E/e
-            plt.plot(xs, psi_, label="E={}".format(E/e))
+            plt.plot(xs/ab, psi_/1000000, label="E={}".format(E/e))
 
-plt.plot(xs, U/e)            
-
+plt.plot(xs/ab, U/e/1000000)            
+plt.xlabel("радиус бора")
+plt.ylabel("МЭВ")
 print("Total discrete levels: {}".format(totalDiscrete))
 plt.legend()
 plt.show()
