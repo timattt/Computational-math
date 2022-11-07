@@ -157,17 +157,6 @@ dt
 
 ![gm2](https://user-images.githubusercontent.com/25401699/149907864-e1099d6a-42fd-4d5b-abbe-bed4fc2a585e.gif)
 
-## Эффект Оберта
-
-Можно заметить, что ракетный двигатель, движущийся с высокой скоростью, совершает больше полезной работы, чем такой же двигатель, движущийся медленно.
-т.к. работа силы - это:
-```
-A = F * dr = F * dr/dt * dt = F * V * dt
-```
-Следовательно, эффективность силы будет больше, если скорость будет больше
-В этом заключается эффект Оберта.
-Будем скачкообразно добавлять скорость и посмотрим, что получится.
-
 ### Пример 6
 
 ![oe1](https://user-images.githubusercontent.com/25401699/149913368-ec238545-09e5-42c5-86b1-5714f18e11eb.gif)
@@ -298,4 +287,608 @@ S = S0 * K / N
 
 ## Одномерное уравнение мелкой воды
 
+
+Имеем вот такую систему.
+
+$$
+\begin{cases}
+   \frac{\partial H}{\partial t} + \frac{\partial (H u)}{\partial x} = 0\\
+  \frac{\partial (H u)}{\partial t} + \frac{\partial (H u^2)}{\partial x} + g H \frac{\partial H}{\partial x} = 0
+\end{cases}\
+$$
+
+Где u - скорость слоя жидкости. H - высота слоя жидкости.
+
+Перепишем в матричном виде:
+
+$$
+\begin{pmatrix}
+\frac{\partial H}{\partial t} \\
+\frac{\partial u}{\partial t}
+\end{pmatrix}
++
+\begin{pmatrix}
+u & H \\
+g & u
+\end{pmatrix}
+*
+\frac{\partial}{\partial x}
+\begin{pmatrix}
+H \\
+u
+\end{pmatrix}
+\text{=}
+\vec 0
+$$
+
+Найдем собственные числа.
+
+$$
+\det \begin{pmatrix}
+u -\lambda & H \\
+g & u - \lambda
+\end{pmatrix} \text{=} (u - \lambda)^2 - g H \text{=} 0
+$$
+
+$$
+\lambda_{1,2} = u \pm c
+$$
+
+где 
+
+$$
+c = \sqrt{g H}
+$$
+
+Тогда легко найти собственные векторы:
+
+$$
+\vec l_1 = 
+\begin{pmatrix}
+-c & H
+\end{pmatrix}
+$$
+
+$$
+\vec l_2 = 
+\begin{pmatrix}
+c & H
+\end{pmatrix}
+$$
+
+Теперь мы умножаем исходную систему в матричном виде на собственные векторы слева. Произведение матрицы и ее собственного вектора преобразуем
+по определению собственного вектора. И получаем два выражения.
+
+$$
+-(H_t + \lambda_1 H_x) c + (u_t + \lambda_1 u_x) H = 0
+$$
+
+$$
+(H_t + \lambda_2 H_x) c + (u_t + \lambda_2 u_x) H = 0
+$$
+
+Теперь во имя устойчивости при апроксимации по координате введем такой оператор:
+
+$$
+L_{\lambda_k}[U]_i^{j} = [\lambda_i^j]_+ \frac{U_i^j - U_{i-1}^j}{h} + [\lambda_{i}^{j}]_- \frac{U_{i-1}^j - U_{i}^{j}}{h}
+$$
+
+где
+
+$$
+[\lambda_i^j]_+ = \frac{\lambda_i^j + |\lambda_i^j|}{2}
+$$
+
+$$
+[\lambda_i^j]_- = \frac{\lambda_i^j - |\lambda_i^j|}{2}
+$$
+
+Отметим, определение устойчивости слудует из спектрального критерия Неймана.
+Будем аппроксимировать таким образом:
+
+$$
+\lambda_k U_x \approx L_{\lambda_k}[U]_i^{j}
+$$
+
+$$
+U_t \approx \frac{U_i^{j+1} - U_i^j}{\tau}
+$$
+
+Подставляем наши авпроксимации и получаем систему из двух неизвестных.
+
+$$
+H_i^{j+1} * [-\frac{c_i^j}{\tau}] + u_i^{j+1} * [\frac{H_i^j}{\tau}] = -\frac{c_i^j H_i^j}{\tau} + c_i^{j} L_{\lambda_1}[H]_i^{j} + \frac{H_i^j u_i^j}{\tau} - H_i^j L_{\lambda_1}[u]_i^{j}
+$$
+
+$$
+H_i^{j+1} * [\frac{c_i^j}{\tau}] + u_i^{j+1} * [\frac{H_i^j}{\tau}] = \frac{c_i^j H_i^j}{\tau} - c_i^{j} L_{\lambda_2}[H]_i^{j} + \frac{h_i^j u_i^j}{\tau} - h_i^j L_{\lambda_2}[u]_i^{j}
+$$
+
+Имеем вот такую сетку.
+
+![image](https://user-images.githubusercontent.com/25401699/197346542-cf91ded9-06f2-43d7-9b17-bbdce2298b6e.png)
+
+
+Здесь зеленым обозначены начальные условия.
+Внутренние точки, которые на схеме обозначены просто точками мы можем найти используя предыдущую систему.
+Однако, что делать на крайних точках. Из формулы следует, что мы можем выйти за пределы сетки.
+Введем граничные условия.
+
+$$
+u(x = 0) = u(x = L) = 0
+$$
+
+Тогда нам будет достаточно только одного уравнения из системы.
+Из анализа системы очевидно следует, что при $$\lambda_k > 0$$ будет явный уголок. То есть берется точка $$i-1$$
+Соответственно на левом конце выбираем уравнение, где $$\lambda_k < 0$$ А на правом то, где $$\lambda_k > 0$$
+
+Если на краю нужного уравнения не нашлось, значит получается, что $$|u| > c$$
+то есть скорость движения жидкости больше скорости звука, чего быть не может. Поэтому нужно выбирать данные для задачи с умом. С учетом условий УМВ.
+
+## Тестирование
+
+### Колокольная капля
+
+$$L = 1$$
+
+$$u(t = 0) = 0$$
+
+$$H(x, t = 0) = 1 + e^{-500(x-\frac{L}{2})^2}$$
+
+$$u(x = 0, t) = u(x = L, t) = 0$$
+
+![Recording 2022-10-23 at 12 13 26](https://user-images.githubusercontent.com/25401699/197384116-8a98acf4-2a67-475b-af4e-72123cc7eec7.gif)
+
+### Равномерный синус
+
+$$L = 1$$
+
+$$u(t = 0) = 0$$
+
+$$H(x, t = 0) = 0.1 + 0.01\sin(10*\frac{x}{L})$$
+
+$$u(x = 0, t) = u(x = L, t) = 0$$
+
+![Recording 2022-10-23 at 12 25 43](https://user-images.githubusercontent.com/25401699/197384494-035cf517-f02f-498e-9e8c-4af38c5496a7.gif)
+
+Еще вот есть вариант без анимации:
+
+![image](https://user-images.githubusercontent.com/25401699/197385064-111cfd39-23c0-4c81-8190-7a7245933092.png)
+
+## Аналитическое решение
+
+### Линеаризация
+
+Пусть 
+
+$$
+u(x, t) = u_0 + \delta u
+$$
+
+$$
+H(x, t) = H_0 + \delta H
+$$
+
+положим тут
+
+$$
+H_0 = 1
+$$
+
+$$
+u_0 = 0
+$$
+
+Теперь подставим это в нашу исходную систему.
+
+$$
+\begin{cases}
+   \frac{\partial}{\partial t}(\delta H) + \frac{\partial}{\partial x}(\delta u (1 + \delta H)) = 0\\
+  \frac{\partial}{\partial t}(\delta u + \delta u \delta H) + \frac{\partial}{\partial x}((1 + \delta H)\delta u^2) + g (1+\delta H) \frac{\partial}{\partial x}(\delta H) = 0
+\end{cases}\
+$$
+
+Или в матричном виде:
+
+$$
+\begin{pmatrix}
+\frac{\partial \delta H}{\partial t} \\
+\frac{\partial \delta u}{\partial t}
+\end{pmatrix}
++
+\begin{pmatrix}
+0 & 1 \\
+g & 0
+\end{pmatrix}
+*
+\frac{\partial}{\partial x}
+\begin{pmatrix}
+\delta H \\
+\delta u
+\end{pmatrix}
+\text{=}
+\vec 0
+$$
+
+Решим спектральную задачу.
+
+$$
+\lambda_1 = \sqrt{g}
+$$
+
+$$
+\vec l_1 = 
+\begin{pmatrix}
+1 \\
+\sqrt{g}
+\end{pmatrix}
+$$
+
+$$
+\lambda_2 = -\sqrt{g}
+$$
+
+$$
+\vec l_2 = 
+\begin{pmatrix}
+-1 \\
+\sqrt{g}
+\end{pmatrix}
+$$
+
+Введем инварианты Римана.
+
+$$
+R_1 = (\vec {\delta U} * \vec l_1) = \delta H + \sqrt{g} \delta u
+$$
+
+
+$$
+R_2 = (\vec {\delta U} * \vec l_2) = - \delta H + \sqrt{g} \delta u
+$$
+
+И тогда имеем два независимых уравнения.
+
+$$
+\frac{\partial}{\partial t} R_1 + \sqrt{g} \frac{\partial}{\partial x} R_1 = 0
+$$
+
+$$
+\frac{\partial}{\partial t} R_2 - \sqrt{g} \frac{\partial}{\partial x} R_2 = 0
+$$
+
+Теперь придумаем задачу.
+За основу возьмем задачу Коши.
+Здесь альфа - мало.
+
+$$
+\delta H (t = 0) = \alpha \sin(\frac{\pi x}{L})
+$$
+
+$$
+\delta u (t = 0) = 0
+$$
+
+Тогда начальные условия для инвариантов будут такими:
+
+$$
+R_1(t = 0) = \alpha \sin(\frac{\pi x}{L})
+$$
+
+$$
+R_2(t = 0) = -\alpha \sin(\frac{\pi x}{L})
+$$
+
+И тогда общее решение будет такое:
+
+$$
+R_1(x, t) = \alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )
+$$
+
+$$
+R_2(x, t) = -\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )
+$$
+
+Итоговые решение будут такими:
+
+$$
+\delta u = \frac{R_1 + R_2}{2\sqrt{g}} = \frac{\alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )-\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )}{2 \sqrt{g}}
+$$
+
+$$
+\delta H = \frac{R_1 - R_2}{2} = \frac{\alpha \sin(\frac{\pi}{L} (x - \sqrt{g} t) )+\alpha \sin(\frac{\pi}{L}(x + \sqrt{g} t) )}{2}
+$$
+
+Тогда можно сгенерировать отсюда и граничные условия:
+
+$$
+\delta u(x = 0) = \frac{-\alpha \sin(\frac{\pi}{L\sqrt{g}} t)}{\sqrt{g}}
+$$
+
+
+$$
+\delta H(x = 0) = 0
+$$
+
+$$
+\delta u(x = L) = \frac{\alpha \sin(\frac{\pi}{L\sqrt{g}} t)}{\sqrt{g}}
+$$
+
+
+$$
+\delta H(x = L) = 0
+$$
+
+Теперь эти начальные и граничные условия можно подать на вход программе и сравнить с линеаризованным решением.
+
 ## Двумерное уравнение мелкой воды
+
+
+Имеем вот такую систему.
+
+$$
+\begin{cases}
+  \frac{\partial H}{\partial t} + \frac{\partial (H u)}{\partial x} + \frac{\partial (H v)}{\partial y} = 0 \\
+  \frac{\partial (H u)}{\partial t} + \frac{\partial}{\partial x}(H u^2 + \frac{1}{2}gH^2) + \frac{\partial}{\partial y} (H u v) = 0 \\
+  \frac{\partial (H v)}{\partial t} + \frac{\partial}{\partial x} (H u v) + \frac{\partial}{\partial y}(H v^2 + \frac{1}{2}gH^2) = 0
+\end{cases}\
+$$
+
+Сделаем замену.
+
+$$
+\begin{pmatrix}
+H \\
+H u \\
+H v
+\end{pmatrix} =
+\begin{pmatrix}
+H \\
+q \\
+p
+\end{pmatrix} = \vec U
+$$
+
+Тогда можно переписать в матричном виде.
+
+$$
+\frac{\partial \vec U}{\partial t} + 
+\begin{pmatrix}
+0 & 1 & 0 \\
+g H - u^2 & 2u & 0 \\
+-u v & v & u
+\end{pmatrix}
+\frac{\partial}{\partial x} \vec U
++
+\begin{pmatrix}
+0 & 0 & 1 \\
+-u v & v & u \\
+g H - v^2 & 0 & 2 v
+\end{pmatrix}
+\frac{\partial}{\partial y} \vec U = 0
+$$
+
+У нас появилось две матрицы.
+Давайте решим спектральную задачу для обеих.
+
+### Матрица при dx
+
+$$
+A = \begin{pmatrix}
+0 & 1 & 0 \\
+g H - u^2 & 2u & 0 \\
+-u v & v & u
+\end{pmatrix}
+$$
+
+Тогда собственные значения и их собственные векторы будут:
+
+$$
+\lambda_1 = u
+$$
+
+$$
+\vec l_1 = \begin{pmatrix}
+0 \\
+0 \\
+1
+\end{pmatrix}
+$$
+
+
+$$
+\lambda_2 = u - c
+$$
+
+$$
+\vec l_2 = \begin{pmatrix}
+1 \\
+u - c \\
+v
+\end{pmatrix}
+$$
+
+
+$$
+\lambda_3 = u + c
+$$
+
+$$
+\vec l_3 = \begin{pmatrix}
+1 \\
+u + c \\
+v
+\end{pmatrix}
+$$
+
+### Матрица при dy
+
+$$
+B = \begin{pmatrix}
+0 & 0 & 1 \\
+-u v & v & u \\
+g H - v^2 & 0 & 2 v
+\end{pmatrix}
+$$
+
+Тогда собственные значения и их собственные векторы будут:
+
+$$
+\lambda_1 = v
+$$
+
+$$
+\vec l_1 = \begin{pmatrix}
+0 \\
+1 \\
+0
+\end{pmatrix}
+$$
+
+
+$$
+\lambda_2 = v - c
+$$
+
+$$
+\vec l_2 = \begin{pmatrix}
+1 \\
+u \\
+v - c
+\end{pmatrix}
+$$
+
+
+$$
+\lambda_3 = v + c
+$$
+
+$$
+\vec l_3 = \begin{pmatrix}
+1 \\
+u \\
+v + c
+\end{pmatrix}
+$$
+
+### Численное решение
+
+Будем решать нашу задачу в два этапа.
+На первом этапе решаем задачу вот такую:
+
+$$
+\frac{\partial}{\partial t} \vec U + A \frac{\partial}{\partial x} \vec U = 0
+$$
+
+Будем умножать эта равенство последовательно на i-ый левый собственный вектор матрицы A.
+
+$$
+(\vec l_i * \frac{\partial}{\partial t} \vec U) + (\vec l_i * A \frac{\partial}{\partial x} \vec U) = 0
+$$
+
+Преобразуем исходя из определения собственного вектора.
+
+$$
+(\vec l_i * \frac{\partial}{\partial t} \vec U) + (\vec l_i * \lambda_i \frac{\partial}{\partial x} \vec U) = 0
+$$
+
+Теперь будем апроксимировать производную по пространству оператором из одномерного случая.
+
+$$
+(\vec l_i * \frac{\partial}{\partial t} \vec U) + (\vec l_i * \lambda_i L_{\lambda_i}[\vec U]) = 0
+$$
+
+Теперь апросимируем по времени.
+
+$$
+(\vec l_i * \frac{\hat{\vec U} - \vec U}{\tau} + (\vec l_i * \lambda_i L_{\lambda_i}[\vec U]) = 0
+$$
+
+Теперь пусть мы уже посчитали сетку на k-ом временном слое. Пусть эта сетка U. Тогда отсюда мы легко найдем U с шляпкой.
+Для этого запишем последнее уравнение для всех трех собственных векторов.
+
+$$
+\begin{cases}
+   p_t + (\vec l_1 * \lambda_1 L_{\lambda_1}[\vec U]) = 0 \\
+   H_t + q_t (u-c) + p_t v + (\vec l_2 * L_{\lambda_2}[\vec U] = 0 \\
+   H_t + q_t (u+c) + p_t v + (\vec l_3 * L_{\lambda_3}[\vec U] = 0
+\end{cases}\
+$$
+
+Эту систему можно решить и получить производные по времени в данный момент времени.
+После чего, зная апроксимацию 
+
+$$
+\vec U_t = \frac{\hat{\vec U} - \vec U}{\tau}
+$$
+
+Мы получим значения p, q, H со шляпкой. То есть для нового временного слоя.
+Мы нашли U со шляпкой для этой задачи. Теперь будем решать такую задачу:
+
+$$
+\frac{\partial}{\partial t} \vec U + B \frac{\partial}{\partial x} \vec U = 0
+$$
+
+Действуя аналогично предыдущему случаю, получим следующую систему для нахождения k+1 временного слоя.
+
+$$
+\begin{cases}
+   q_t + (\vec l_1 * \lambda_1 L_{\lambda_1}[\vec U]) = 0 \\
+   H_t + q_t u + p_t (v-c) + (\vec l_2 * L_{\lambda_2}[\vec U] = 0 \\
+   H_t + q_t u + p_t (v+c) + (\vec l_3 * L_{\lambda_3}[\vec U] = 0
+\end{cases}\
+$$
+
+Отсюда снова можем найти q, p, H для следующего временного слоя.
+
+Теперь сделаем следующее:
+1. У нас есть k-ый временной слой Uij.
+2. Мы решим первую задачу на всех узлах сетки, используя этот слой и получим новый слой Vij.
+3. Мы решим вторую задачу на всех узлах сетки, используя промежуточный слой Vij и получим итоговый новый слой в основной задаче.
+
+То есть по сути своей мы как бы вспахиваем двумерную сетку xy как поле. Сначала, решая первой задачей, линиями параллельными оси x.
+А потом, решая второй задачей, линией параллельными оси y.
+
+С граничными условиями на каждой такой линии разбираемся аналогично одномерному случаю. То есть смотрим на лямбды и на то, будет ли схема явной или неявной.
+Отметим, что в итоговых системах два последних уравнения помогают найти на границе H. А первое согласовать u и v с их граничными условиями, но
+если мы на границе требуем равенство скорости нулю, то первое уравнение нам там не понадобится.
+
+# Тестирование
+
+Имеем сетку XoY 30 на 30.
+И 200 вперед по времени.
+
+$$
+\begin{cases}
+h = 0.01\\
+\tau = 0.001\\
+N = 30\\
+M = 200\\
+L = N * h = 0.3
+\end{cases}
+$$
+
+## Экспонента в центре
+
+### Начальные условия
+
+$$
+\begin{cases}
+H(x, y) = 1 + 0.3*h* \exp(-500*((x-\frac{L}{2})^2 + (y-\frac{L}{2})^2)) \\
+u(x, y) = v(x, y) = 0
+\end{cases}
+$$
+
+![image](https://user-images.githubusercontent.com/25401699/199317900-36ad95fc-f74b-4832-a31f-3734516916e0.png)
+
+### Граничные условия
+
+На границе сетки:
+
+$$
+u = v = 0
+$$
+
+### Процесс
+
+![test](https://user-images.githubusercontent.com/25401699/199325460-e18ee4fa-093e-46d5-862a-a265464d9224.gif)
