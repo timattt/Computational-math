@@ -30,11 +30,11 @@ $$
 В запрешенной слева:
 
 $$
-\psi(x) = \frac{C}{\sqrt{|p(x)|}}\exp (-\frac{1}{\hbar}\int_{x}^{a} |p(x')| dx')
+\psi(x) = \frac{C}{2\sqrt{|p(x)|}}\exp (-\frac{1}{\hbar}\int_{x}^{a} |p(x')| dx')
 $$
 
 В запрешенной справа:
 
 $$
-\psi(x) = \frac{C}{\sqrt{|p(x)|}}\exp (-\frac{1}{\hbar}\int_{b}^{x} |p(x')| dx')
+\psi(x) = \frac{C}{2\sqrt{|p(x)|}}\exp (-\frac{1}{\hbar}\int_{b}^{x} |p(x')| dx')
 $$
