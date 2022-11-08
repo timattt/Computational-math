@@ -110,9 +110,9 @@ def task(xmin, xmax, a, U0, ns=None):
                 
         def psi(x):
             if x < x1:
-                return np.exp(-I_comp1(x)/dirac)
+                return np.exp(-I_comp1(x)/dirac)/(2*np.sqrt(p_comp(x)))
             if x2 < x:
-                return np.exp(-I_comp2(x)/dirac)
+                return np.exp(-I_comp2(x)/dirac)/(2*np.sqrt(p_comp(x)))
             return np.sin(I(x)/dirac + np.pi/4)/np.sqrt(p(x))
         
         psis = [psi(x)**2 for x in xs]
