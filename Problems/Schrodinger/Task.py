@@ -3,11 +3,12 @@ import numpy as np
 
 N = 1000
 a = 0.25*ab
-Xmin = -1*a
-Xmax = 1*a
+Xmin = 1*ab
+Xmax = 25*ab
+
+A = 5*ab
+U0 = 1*e
 
 def U(x):
-    if np.abs(x) < a/2:
-        return -100000 * e
-    return 0
+    return U0 * (x/A - A/x)**2
     

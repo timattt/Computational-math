@@ -28,15 +28,16 @@ for i in range(Task.N-1):
 # solve spectral problem
 w, v = np.linalg.eigh(A)
 
+
+
 print("Umin = {}, Umax = {}".format(Umin, Umax))
 
 # normalize
-psis = np.array([v[i] / np.sqrt(np.dot(v[i], v[i])*h) for i in range(Task.N)])
+psis = np.array([v[:, i] / np.sqrt(np.dot(v[:, i], v[:, i])*h) for i in range(Task.N)])
 psiMax = np.max(np.abs(psis))
 totalDiscrete = np.sum([1 if w[i] < Umax and w[i] > Umin else 0 for i in range(Task.N)])
 
 xs = xs
-
 for i in range(Task.N):
         psi_ = psis[i]
         E = w[i]
