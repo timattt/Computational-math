@@ -17,3 +17,24 @@ $$
 ![image](https://user-images.githubusercontent.com/25401699/200623257-2163283d-e2f0-444e-85bc-8ec4aec97f96.png)
 
 ![image](https://user-images.githubusercontent.com/25401699/200623301-e1dff6b3-1f8c-4b51-ac11-1fb5e5417731.png)
+
+### Численное построение волновых функций
+
+Теперь, когда мы умеем находить энергии, мы легко можем численно проинтегрировать в трех областях.
+В разрешенной:
+
+$$
+\psi(x) = \frac{C}{p(x)}\sin (\frac{1}{\hbar}\int_{a}^{x}p(x')dx' + \frac{\pi}{4})
+$$
+
+В запрешенной слева:
+
+$$
+\psi(x) = \frac{C}{p(x)}\exp (-\frac{1}{\hbar}\int_{x}^{a} |p(x')| dx')
+$$
+
+В запрешенной справа:
+
+$$
+\psi(x) = \frac{C}{p(x)}\exp (-\frac{1}{\hbar}\int_{b}^{x} |p(x')| dx')
+$$
