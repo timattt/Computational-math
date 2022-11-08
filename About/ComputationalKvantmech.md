@@ -54,6 +54,8 @@ $$
 U_0 = 1000 ЭВ
 $$
 
+![image](https://user-images.githubusercontent.com/25401699/200627562-555191e2-5dfd-46f4-9143-2563467badf3.png)
+
 ### Средний параметр (третий случай)
 
 $$
@@ -63,6 +65,9 @@ $$
 $$
 U_0 = 1 ЭВ
 $$
+
+![image](https://user-images.githubusercontent.com/25401699/200627654-a6b25b7d-9afa-4d92-8112-48e316c164f3.png)
+
 
 ### Малый параметр (второй случай)
 
@@ -74,6 +79,8 @@ $$
 U_0 = 0.001 ЭВ
 $$
 
+![image](https://user-images.githubusercontent.com/25401699/200627747-bb8b81a1-1246-420d-bc09-1fa0cc0649e2.png)
+
 ### Сразу три случая
 
 $$
@@ -83,4 +90,7 @@ $$
 $$
 U_0 = 100 ЭВ
 $$
+
+![image](https://user-images.githubusercontent.com/25401699/200627881-4d78436c-c687-4de5-8e3c-73e6584a5998.png)
+
 
