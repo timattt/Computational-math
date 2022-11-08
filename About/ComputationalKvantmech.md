@@ -24,17 +24,17 @@ $$
 В разрешенной:
 
 $$
-\psi(x) = \frac{C}{p(x)}\sin (\frac{1}{\hbar}\int_{a}^{x}p(x')dx' + \frac{\pi}{4})
+\psi(x) = \frac{C}{\sqrt{p(x)}}\sin (\frac{1}{\hbar}\int_{a}^{x}p(x')dx' + \frac{\pi}{4})
 $$
 
 В запрешенной слева:
 
 $$
-\psi(x) = \frac{C}{p(x)}\exp (-\frac{1}{\hbar}\int_{x}^{a} |p(x')| dx')
+\psi(x) = \frac{C}{\sqrt{|p(x)|}}\exp (-\frac{1}{\hbar}\int_{x}^{a} |p(x')| dx')
 $$
 
 В запрешенной справа:
 
 $$
-\psi(x) = \frac{C}{p(x)}\exp (-\frac{1}{\hbar}\int_{b}^{x} |p(x')| dx')
+\psi(x) = \frac{C}{\sqrt{|p(x)|}}\exp (-\frac{1}{\hbar}\int_{b}^{x} |p(x')| dx')
 $$
