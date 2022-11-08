@@ -1,14 +1,14 @@
 from Const import *
 import numpy as np
+import Schrodinger
 
 N = 1000
-a = 0.25*ab
-Xmin = 1*ab
-Xmax = 25*ab
+Xmin = -16000000*ab
+Xmax = 16000000*ab
 
-A = 5*ab
-U0 = 1*e
+omega = 100*dirac / (m*np.sqrt(ab))
 
 def U(x):
-    return U0 * (x/A - A/x)**2
+    return m*omega**2 * x**2 / 2
     
+Schrodinger.task(N, Xmin, Xmax, U, maxDiscrete=4)
