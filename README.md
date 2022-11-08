@@ -28,3 +28,7 @@
 
 1. [**Избранные проблемы вычислительной физики**](https://github.com/timattt/Project-computational-math/blob/master/Articles/ProblemsOfComputationalPhysics.md)
 2. [**Клевая вычфизика**](https://github.com/timattt/Project-computational-math/blob/master/Articles/CoolCompPsysics.md)
+
+## Задачи
+
+1. [**Метод ВКБ**](https://github.com/timattt/Project-computational-math/blob/master/About/ComputationalKvantmech.md)
