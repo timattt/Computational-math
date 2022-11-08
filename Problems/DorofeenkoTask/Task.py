@@ -124,7 +124,10 @@ def task(xmin, xmax, a, U0, ns=None):
         
         #plt.plot(xs, [En for x in xs])
         plt.scatter([x1, x2], [U(x1), U(x2)], color="black")
+        plt.xlabel("радиус бора")
+        plt.ylabel("электрон-вольт")
         plt.plot(xs, psis, label = "E={}".format(En))
+        
         
     print("n << alpha0 -> {}, n ~ alpha0 -> {}, n >> alpha0 -> {}\n".format( first, second, third))
     plt.legend()
