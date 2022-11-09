@@ -3,7 +3,7 @@ import numpy as np
 import Schrodinger
 import QuasiClassics
 import matplotlib.pyplot as plt
-import Task2Tmp
+from Tasks import Task2Tmp
 
 N = 700
 
@@ -17,7 +17,7 @@ def packedTask(Xmin, Xmax, a, U0, ns):
         return U0 * (a/x - x/a)**2
         
     def energy(n):
-        import Task2Tmp
+        from Tasks import Task2Tmp
         
         alpha0 = np.sqrt(2*m*U0)/dirac
 
