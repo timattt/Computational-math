@@ -24,7 +24,7 @@ def task(N, xmin, xmax, U, energy, ns=None, mlt = 1, mayRender = True, mayRound 
         x2 = 0
             
         En, x1, x2 = energy(n)
-    
+
         dx = (x2-x1)/10000
         
         while En - U(x1) > 0:
