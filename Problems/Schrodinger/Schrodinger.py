@@ -45,6 +45,9 @@ def task(N, Xmin, Xmax, U, maxDiscrete = None, mlt = 1, mayRender = True, mayRou
                 plt.plot(xs/ab, psi_/e, label="E{}={} ЭВ".format(n, round(E/e, 0) if mayRound else E/e), color="red")
                 if mayDrawEnergyLevels:
                     plt.plot([xs[0]/ab, xs[-1]/ab], [E/e, E/e], linestyle ='--', color="gray")
+                psi_ -= E
+                psi_ /= np.sqrt(np.dot(psi_, psi_)*h)
+                    
                 n += 1
     
     plt.plot(xs/ab, U/e, color = "orange")            
@@ -53,3 +56,5 @@ def task(N, Xmin, Xmax, U, maxDiscrete = None, mlt = 1, mayRender = True, mayRou
     if mayRender:
         plt.legend()
         plt.show()
+        
+    return w, psis, totalDiscrete
