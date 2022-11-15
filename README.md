@@ -22,7 +22,7 @@
 15. [**Уравнение Хопфа**](https://github.com/timattt/Project-computational-math/blob/master/About/ShallowWater.md)
 16. [**Одномерное уравнение мелкой воды**](https://github.com/timattt/Project-computational-math/blob/master/About/SWE.md)
 17. [**Двумерное уравнение мелкой воды ★**](https://github.com/timattt/Project-computational-math/blob/master/About/2DSWE.md)
-18. [**Уравнение Шредингера**](https://github.com/timattt/Project-computational-math/blob/master/About/Schrodinger.md)
+18. [**Уравнение Шредингера ★**](https://github.com/timattt/Project-computational-math/blob/master/About/Schrodinger.md)
 
 ## Статьи
 
