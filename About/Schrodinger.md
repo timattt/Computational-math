@@ -83,5 +83,5 @@ $$
 Здесь потенциал имеет вид:
 
 $$
-U(x) = -\frac{\hbar^2}{2m}\psi(x) + \frac{m\omega^2}{2}\psi(x)
+U(x) = -\frac{\hbar^2}{2m}\psi(x) + \frac{m\omega^2 x^2}{2}\psi(x)
 $$
