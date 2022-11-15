@@ -316,7 +316,7 @@ $$
 Тогда можно сгенерировать отсюда и граничные условия:
 
 $$
-\delta u(x = 0) = \frac{-\alpha \sin(\frac{\pi}{L\sqrt{g}} t)}{\sqrt{g}}
+\delta u(x = 0) = \frac{-\alpha \sin(\frac{\pi \sqrt{g}}{L} t)}{\sqrt{g}}
 $$
 
 
@@ -325,7 +325,7 @@ $$
 $$
 
 $$
-\delta u(x = L) = \frac{\alpha \sin(\frac{\pi}{L\sqrt{g}} t)}{\sqrt{g}}
+\delta u(x = L) = \frac{\alpha \sin(\frac{\pi\sqrt{g}}{L} t)}{\sqrt{g}}
 $$
 
 
