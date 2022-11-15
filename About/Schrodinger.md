@@ -75,3 +75,13 @@ $$
 ![image](https://user-images.githubusercontent.com/25401699/201887867-1a98b94f-263e-4605-9f0f-32c84f1d8e81.png)
 
 При такой конфигурации нашлось 5 дискретных уровней энергии.
+
+### Гармонический осциллятор
+
+![image](https://user-images.githubusercontent.com/25401699/201888718-637dbaa7-00c0-4d25-845f-84489e1d73b3.png)
+
+Здесь потенциал имеет вид:
+
+$$
+U(x) = -\frac{\hbar^2}{2m}\psi(x) + \frac{m\omega^2}{2}\psi(x)
+$$
