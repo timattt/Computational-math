@@ -85,3 +85,9 @@ $$
 $$
 U(x) = -\frac{\hbar^2}{2m}\psi(x) + \frac{m\omega^2 x^2}{2}\psi(x)
 $$
+
+где
+
+$$
+\omega = 10 \frac{\hbar}{m a_{b}^2}
+$$
