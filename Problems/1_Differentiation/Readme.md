@@ -36,7 +36,7 @@ f(x) = sin(x)
 ```
 На графике можно видеть несколько порядков точности производной. Видно, что второй порядок лучше, чем первый.
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/DiffExample.png)
+![image](https://user-images.githubusercontent.com/25401699/210582524-5ba8352d-f283-4344-b419-27970a46b06d.png)
 
 ### Эксперимент с порядком точности
 Теперь давайте напишем программу, которая для каждой из вышеуказнных формул построит график зависимости погрешности от мелкости разбиения.
@@ -54,7 +54,7 @@ p - порядок.
 
 Построим график:
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/GraphDiffRaw.png)
+![image](https://user-images.githubusercontent.com/25401699/210582639-b9fc6b0e-10d2-4879-b6db-33d7148e40fa.png)
 
 По оси X - мелкость разбиения. По оси Y - погрешность.
 Можно заметить, что у разной точности разный изгиб линии.
@@ -66,7 +66,8 @@ ln(sigma(h)) = p*ln(h);
 ```
 Теперь построим график с логарифмом:
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/GraphDiff.png)
+![image](https://user-images.githubusercontent.com/25401699/210582716-ba44fd76-b4ae-47ce-b2e0-4781e287a2e8.png)
+
 
 Теперь для каждой линии p - это просто тангенс угла наклона этой линии.
 И если посчитать это самое p по графику, то видно, что для первых порядков p = 1, а для вторых p = 2. Т.е. теоретическое предположени выполняется.
