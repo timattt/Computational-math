@@ -46,10 +46,6 @@ U(x, t) = [   ] * sin(x-t)
           [ 1 ]
 ```
 
-И это можно нарисовать.
-
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/result.gif)
-
 ## Оценка погрешностей
 
 Строим зависимость ошибки от шага. Логарифмируем.
