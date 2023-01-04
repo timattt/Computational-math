@@ -8,7 +8,7 @@
 ### Метод Гаусса с выбором главного элемента
 
 Очень простая модификация предыдущего. Теперь когда обрабатываем строку выбираем такую, чтобы элемент по модулю был наибольшим.
-Подроьнее [здесь](http://www.e-biblio.ru/book/bib/02_estestv_nauki/Vychislit_matematika/pr/docs/piece010.htm).
+Подробнее [здесь](http://www.e-biblio.ru/book/bib/02_estestv_nauki/Vychislit_matematika/pr/docs/piece010.htm).
 
 ### Метод Якоби
 
@@ -16,7 +16,8 @@
 
 Все нужные формулы ниже:
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/JacobTeor.png)
+![image](https://user-images.githubusercontent.com/25401699/210582984-8532a58c-d37e-4dc7-bfb5-0af99b2ed633.png)
+
 
 D означает матрицу, у которой на главной диагонали стоят соответствующие элементы матрицы A.
 
@@ -31,7 +32,7 @@ D означает матрицу, у которой на главной диа�
 
 Нужные соотношения ниже:
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/ZeidelTeor.png)
+![image](https://user-images.githubusercontent.com/25401699/210583065-4b37ace4-5898-4425-a348-80033c153b57.png)
 
 Метод сходится, если 
 ```
@@ -68,4 +69,4 @@ Tn = (rn * Arn) / (Arn * Arn)
 
 Метод для решения СЛАУ, матрица которых заполнена не нулями только на трех диагоналях.
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/sweep.png)
+![image](https://user-images.githubusercontent.com/25401699/210583104-b6a2e3c8-e681-485a-9b56-6677051ed8d5.png)
