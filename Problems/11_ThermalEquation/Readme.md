@@ -30,9 +30,9 @@ U(t, L) = mu(t)
 
 Получим что-то такое:
 
-![image](https://github.com/timattt/Project-computational-math/blob/master/Images/animation.gif)
+![animation](https://user-images.githubusercontent.com/25401699/210584550-aefae0ca-126b-49cd-8c6d-9a3de44e54a0.gif)
 
-![image](https://github.com/timattt/Project-computational-math/blob/master/Images/animation1.gif)
+
 
 ### Оценка погрешностей
 
