@@ -106,3 +106,7 @@ $$
 ![image](https://user-images.githubusercontent.com/25401699/201889954-014d85cd-cc18-4592-a44e-2675d3fba323.png)
 
 Получаем второй порядок по разбиению координаты. Что логично, ибо мы апроксимировали лапласиан вторым порядком.
+
+### Численное решение задач по квантмеху
+
+Вот [тут](https://github.com/timattt/Project-computational-math/tree/master/Problems/16_Schrodinger/Tasks/sdacha1/Special) есть решение одной из задач из первого задания.
