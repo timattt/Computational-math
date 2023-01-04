@@ -10,7 +10,7 @@
 
 ### Метод Ньютона (метод секущих)
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/Newton_tangents.png)
+![image](https://user-images.githubusercontent.com/25401699/210583444-e3bddede-e1ff-43cd-9afb-a00776c96830.png)
 
 **Определение красности корня:**
 
@@ -23,18 +23,20 @@ Qn = (Xn+1 - Xn) / (Xn - Xn-1)
 
 ### Метод Ньютона (метод секущей)
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/Newton_tangent.png)
+![image](https://user-images.githubusercontent.com/25401699/210583509-1bafd307-e231-484b-9b2d-91383b4b4deb.png)
 
 ### Метод Ньютона (метод хорд)
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/Newton_chords.png)
+![image](https://user-images.githubusercontent.com/25401699/210583654-a480391f-adf0-44c6-be80-7b5dfa60c343.png)
 
 ### Метод Ньютона (многомерный случай)
 
 Имеем вектор-функцию **f**. Имеет ее матрицу якоби **F'**.
 Тогда для поиска корней справедлива формула рекурсивная:
 
-![](https://github.com/timattt/Project-computational-math/blob/master/Images/Newton_multi.png)
+
+![image](https://user-images.githubusercontent.com/25401699/210583736-13a2f923-59f9-4413-9ac8-294b1473be38.png)
+
 
 Где **Xk** - векторная последовательность.
 
