@@ -58,3 +58,8 @@ $$
 $$
 \rho_k = \frac{1}{y_k^T s_k}
 $$
+
+### Результаты работы
+
+![image](https://github.com/timattt/Computational-math/assets/25401699/32301993-7114-4753-9480-2f2abc71f937)
+
