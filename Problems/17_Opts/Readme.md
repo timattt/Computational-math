@@ -32,7 +32,9 @@ $$
 p_k = -C_k \nabla f_k
 $$
 
-* Вычисляем $$x_{k+1} = x_k + \alpha_k + p_k$$, где $\alpha_k$ удовлетворяет условиям Вольфе:
+* Вычисляем $$x_{k+1} = x_k + \alpha_k + p_k$$
+
+где $\alpha_k$ удовлетворяет условиям Вольфе:
 
 $$
 f(x_k + \alpha_k p_k) \leq f(x_k) + c_1 \alpha_k \nabla f_k^T p_k
