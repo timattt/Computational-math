@@ -48,11 +48,11 @@ $$
 * Вычисляем новый приблизительный гессиан (а точнее его обратную матрицу, ибо так проще): 
 
 $$
-C_{k+1} = (I - \ro_k s_k y_k^T)C_k(I - \ro_k y_k s_k^T) + \ro_k s_k s_k^T
+C_{k+1} = (I - \rho_k s_k y_k^T)C_k(I - \rho_k y_k s_k^T) + \rho_k s_k s_k^T
 $$
 
 где
 
 $$
-\ro_k = \frac{1}{y_k^T s_k}
+\rho_k = \frac{1}{y_k^T s_k}
 $$
