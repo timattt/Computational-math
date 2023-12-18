@@ -19,3 +19,4 @@
 14. [**Одномерное уравнение мелкой воды**](https://github.com/timattt/Project-computational-math/tree/master/Problems/14_1D_SWE)
 15. [**Двумерное уравнение мелкой воды ★**](https://github.com/timattt/Project-computational-math/tree/master/Problems/15_2D_SWE)
 16. [**Уравнение Шредингера ★**](https://github.com/timattt/Project-computational-math/tree/master/Problems/16_Schrodinger)
+17. [**Три метода оптимизации**](https://github.com/timattt/Computational-math/tree/master/Problems/17_Opts)
