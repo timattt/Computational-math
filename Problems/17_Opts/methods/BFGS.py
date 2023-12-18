@@ -3,10 +3,7 @@ import numpy.linalg as ln
 import scipy as sp
 import scipy.optimize
 
-def solve(f, fprime, x0, maxiter=None, epsi=10e-6):
-    # initial values
-    if maxiter is None:
-        maxiter = len(x0) * 200
+def solve(f, fprime, x0, maxiter, epsi):
 
     k = 0
     gfk = fprime(x0)

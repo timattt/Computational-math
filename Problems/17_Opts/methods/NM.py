@@ -1,17 +1,17 @@
 import numpy as np
 
 
-def solve(f, v1, v2, v3, alpha=1, beta=0.5, gamma=2, maxiter=5, epsilon=0.01):
+def solve(f, startPoints, alpha=1, beta=0.5, gamma=2, maxiter=5, epsilon=0.01):
     triags = []
     for i in range(maxiter):
-        adict = [[v1, f(v1)], [v2, f(v2)], [v3, f(v3)]]
+        adict = [[v, f(v)] for v in startPoints]
         points = sorted(adict, key=lambda x: x[1])
 
         b = points[0][0]
         g = points[1][0]
-        w = points[2][0]
-
-        mid = (g + b) / 2
+        w = points[-1][0]
+        tmp = [p[0] for p in points[:-1]]
+        mid = np.sum(tmp, axis=0) / (len(points) - 1)
 
         # reflection
         xr = mid + alpha * (mid - w)
@@ -39,12 +39,14 @@ def solve(f, v1, v2, v3, alpha=1, beta=0.5, gamma=2, maxiter=5, epsilon=0.01):
                 w = xc
 
         # update points
-        v1 = w
-        v2 = g
-        v3 = b
+        points[0][0] = b
+        points[1][0] = g
+        points[-1][0] = w
 
-        if (v2[0] - v3[0]) ** 2 + (v2[1] - v3[1]) ** 2 < epsilon ** 2:
+        startPoints = [p[0] for p in points]
+
+        if np.dot(g - b, g - b) <= epsilon ** 4:
             break
 
-        triags.append((v1, v2, v3))
+        triags.append(b)
     return triags
