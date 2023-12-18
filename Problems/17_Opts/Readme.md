@@ -102,8 +102,17 @@ f(\vec x) = |A \vec x - b|^2
 $$
 
 Здесь можно выбрать размерность произвольную. Реализация позволяет.
-Пусть N = 100.
+
+### Пусть N = 50.
+
+![image](https://github.com/timattt/Computational-math/assets/25401699/ead0347d-1481-47c3-b201-b6c025a3b9c6)
+
+### Пусть N = 100.
 
 ![image](https://github.com/timattt/Computational-math/assets/25401699/e3e52a8e-043f-41cd-83ea-eaf0decee363)
+
+### Пусть N = 150.
+
+![image](https://github.com/timattt/Computational-math/assets/25401699/dc674507-2774-4792-82c6-dbd83b5af561)
 
 
