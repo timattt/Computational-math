@@ -94,3 +94,16 @@ s.t. $|p| < \Delta_k$
 Получим зависимость количества итераций от точности для всех трех алгоритмов.
 
 ![image](https://github.com/timattt/Computational-math/assets/25401699/8bf3db5d-5bad-4be5-b1f1-cec709ffbe69)
+
+## Многомерный тест
+
+$$
+f(\vec x) = |A \vec x - b|^2
+$$
+
+Здесь можно выбрать размерность произвольную. Реализация позволяет.
+Пусть N = 100.
+
+![image](https://github.com/timattt/Computational-math/assets/25401699/e3e52a8e-043f-41cd-83ea-eaf0decee363)
+
+
