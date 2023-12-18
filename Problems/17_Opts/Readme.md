@@ -109,7 +109,7 @@ $$
 
 ### Пусть N = 100.
 
-![image](https://github.com/timattt/Computational-math/assets/25401699/e3e52a8e-043f-41cd-83ea-eaf0decee363)
+![image](https://github.com/timattt/Computational-math/assets/25401699/fc2211b8-7810-4d3e-9e54-34180102a36b)
 
 ### Пусть N = 150.
 
